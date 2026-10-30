@@ -1,0 +1,75 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<MainLayout
+  title="Mentions légales | Station-Cœur"
+  description="Mentions légales du site Station-Cœur, projet porté par l'association Nous Avons Des Elles."
+>
+  <section class="pt-32 pb-20 lg:pb-32">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1 class="section-title text-secondary-900 mb-8">{t.legal.title}</h1>
+
+      <div class="prose prose-lg prose-secondary max-w-none">
+        <h2>Éditeur du site</h2>
+        <p>
+          <strong>Association Nous Avons Des Elles</strong><br />
+          [Adresse à compléter]<br />
+          Email : contact@nousavonsdeselles.fr
+        </p>
+
+        <h2>Directeur de la publication</h2>
+        <p>[Nom du responsable à compléter]</p>
+
+        <h2>Hébergement</h2>
+        <p>
+          [Informations hébergeur à compléter]
+        </p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus présents sur ce site (textes, images, logos, etc.)
+          est protégé par le droit d'auteur. Toute reproduction, même partielle,
+          est soumise à autorisation préalable.
+        </p>
+
+        <h2>Protection des données personnelles</h2>
+        <p>
+          Conformément au Règlement Général sur la Protection des Données (RGPD),
+          vous disposez d'un droit d'accès, de rectification et de suppression des données
+          vous concernant. Pour exercer ce droit, contactez-nous à l'adresse :
+          contact@nousavonsdeselles.fr
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          Ce site n'utilise pas de cookies de traçage publicitaire.
+          Seuls des cookies techniques essentiels au fonctionnement du site peuvent être utilisés.
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <a href={getLocalizedPath('/', lang)} class="btn-secondary">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          {t.legal.back}
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-display font-bold text-secondary-900 mt-8 mb-4;
+  }
+
+  .prose p {
+    @apply text-secondary-600 mb-4 leading-relaxed;
+  }
+</style>

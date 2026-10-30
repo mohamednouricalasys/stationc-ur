@@ -1,0 +1,114 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<MainLayout
+  title="Privacy Policy | Station-Cœur"
+  description="Privacy policy for Station-Cœur website, a project led by the association Nous Avons Des Elles."
+>
+  <section class="pt-32 pb-20 lg:pb-32">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1 class="section-title text-secondary-900 mb-8">{t.privacy.title}</h1>
+
+      <div class="prose prose-lg prose-secondary max-w-none">
+        <p class="text-lg text-secondary-700">
+          The association Nous Avons Des Elles is committed to protecting the privacy of users
+          of its Station-Cœur website. This privacy policy explains how we
+          collect, use, and protect your personal data.
+        </p>
+
+        <h2>Data Collected</h2>
+        <p>
+          We only collect data that you voluntarily provide
+          through our contact form:
+        </p>
+        <ul>
+          <li>First and last name</li>
+          <li>Email address</li>
+          <li>Organization (optional)</li>
+          <li>Message</li>
+        </ul>
+
+        <h2>Use of Data</h2>
+        <p>
+          Your data is used exclusively for:
+        </p>
+        <ul>
+          <li>Responding to your contact requests</li>
+          <li>Informing you about Station-Cœur activities (with your consent)</li>
+        </ul>
+
+        <h2>Data Retention</h2>
+        <p>
+          Your data is retained for a maximum period of 3 years from
+          your last contact, unless otherwise required by law.
+        </p>
+
+        <h2>Data Sharing</h2>
+        <p>
+          We do not sell, exchange, or transfer your personal data
+          to third parties without your explicit consent, except as required by law.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          In accordance with GDPR, you have the following rights:
+        </p>
+        <ul>
+          <li><strong>Right of access</strong>: obtain a copy of your data</li>
+          <li><strong>Right to rectification</strong>: correct your data</li>
+          <li><strong>Right to erasure</strong>: delete your data</li>
+          <li><strong>Right to portability</strong>: retrieve your data</li>
+          <li><strong>Right to object</strong>: refuse certain processing</li>
+        </ul>
+
+        <h2>Security</h2>
+        <p>
+          We implement appropriate security measures to protect
+          your data against unauthorized access, modification, or disclosure.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For any questions regarding this policy or to exercise your rights,
+          contact us at: <a href="mailto:contact@nousavonsdeselles.fr" class="text-primary-600 hover:text-primary-700">contact@nousavonsdeselles.fr</a>
+        </p>
+
+        <p class="text-sm text-secondary-500 mt-8">
+          Last updated: October 2026
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <a href={getLocalizedPath('/', lang)} class="btn-secondary">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          {t.privacy.back}
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-display font-bold text-secondary-900 mt-8 mb-4;
+  }
+
+  .prose p {
+    @apply text-secondary-600 mb-4 leading-relaxed;
+  }
+
+  .prose ul {
+    @apply text-secondary-600 mb-4 ml-6 space-y-2;
+  }
+
+  .prose li {
+    @apply list-disc;
+  }
+</style>

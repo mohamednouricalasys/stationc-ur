@@ -1,0 +1,131 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, getLocalizedPath, getAlternateLanguage } from '../i18n';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const alternateLang = getAlternateLanguage(lang);
+
+const defaultDescriptions = {
+  fr: "Station-Cœur, un tiers-lieu solidaire porté par l'association Nous Avons Des Elles. Découvrez notre projet, nos activités et rejoignez l'aventure !",
+  en: "Station-Cœur, a solidarity hub led by the association Nous Avons Des Elles. Discover our project, our activities and join the adventure!"
+};
+
+const {
+  title,
+  description = defaultDescriptions[lang],
+  ogImage = "/images/og-image.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = Astro.url.pathname.replace(`/${lang}`, '').replace(/^\/+/, '') || '';
+const alternateURL = new URL(getLocalizedPath(currentPath, alternateLang), Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Nous Avons Des Elles" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'fr' ? 'en_US' : 'fr_FR'} />
+    <meta property="og:site_name" content="Station-Cœur | Nous Avons Des Elles" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang={lang} href={canonicalURL} />
+    <link rel="alternate" hreflang={alternateLang} href={alternateURL} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Preconnect to fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>{title}</title>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Station-Cœur",
+      "description": description,
+      "url": canonicalURL,
+      "inLanguage": lang,
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Nous Avons Des Elles",
+        "url": "https://www.nousavonsdeselles.fr"
+      }
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Intersection Observer for reveal animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with reveal classes
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href') as string;
+          const target = href.length > 1 ? document.querySelector(href) : null;
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

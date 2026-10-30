@@ -1,0 +1,339 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ObjectiveCard from '../components/ObjectiveCard.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import PublicCard from '../components/PublicCard.astro';
+import PartnerGrid from '../components/PartnerGrid.astro';
+import Gallery from '../components/Gallery.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { getLangFromUrl, useTranslations } from '../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Icons for objectives
+const objectiveIcons = [
+  `<svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>`,
+  `<svg class="w-7 h-7 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>`,
+  `<svg class="w-7 h-7 text-warm-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`,
+  `<svg class="w-7 h-7 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>`,
+];
+
+const objectiveColors = ['primary', 'accent', 'warm', 'secondary'] as const;
+
+// Icons for publics
+const publicIcons = [
+  `<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>`,
+  `<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>`,
+  `<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>`,
+  `<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>`,
+];
+
+const publicColors = ['primary', 'accent', 'warm', 'secondary'] as const;
+
+const partners = [
+  { name: "Région Île-de-France", logo: "/images/partners/partner-10.jpg", url: "https://www.iledefrance.fr" },
+  { name: "SNCF", logo: "/images/partners/partner-08.jpg", url: "https://www.sncf.com" },
+  { name: "Île-de-France Mobilités", logo: "/images/partners/partner-09.jpg", url: "https://www.iledefrance-mobilites.fr" },
+  { name: "Malakoff Humanis", logo: "/images/partners/partner-11.jpg", url: "https://www.malakoffhumanis.com" },
+  { name: "L'assurance retraite", logo: "/images/partners/partner-12.jpg", url: "https://www.lassuranceretraite.fr" },
+  { name: "BGE", logo: "/images/partners/partner-05.jpg", url: "https://www.bge.asso.fr" },
+  { name: "Le Quai des Possibles", logo: "/images/partners/partner-06.jpg", url: "https://lequaidespossibles.fr" }
+];
+
+const galleryItems = [
+  { src: "/images/gallery/gallery-39.jpg", alt: lang === 'fr' ? "L'équipe devant la boutique solidaire" : "The team in front of the solidarity shop", caption: lang === 'fr' ? "L'équipe Station-Cœur" : "The Station-Cœur team" },
+  { src: "/images/gallery/gallery-28.jpg", alt: lang === 'fr' ? "Terrasse devant la gare" : "Terrace in front of the station", caption: lang === 'fr' ? "La terrasse de la gare" : "The station terrace" },
+  { src: "/images/gallery/gallery-34.jpg", alt: lang === 'fr' ? "Bénévoles et partenaires devant la gare" : "Volunteers and partners in front of the station", caption: lang === 'fr' ? "Bénévoles et partenaires" : "Volunteers and partners" },
+  { src: "/images/gallery/gallery-26.jpg", alt: lang === 'fr' ? "Boutique de vêtements de seconde main" : "Second-hand clothing shop", caption: lang === 'fr' ? "La boutique solidaire" : "The solidarity shop" },
+  { src: "/images/gallery/gallery-21.jpg", alt: lang === 'fr' ? "Rencontre sur le parvis de la gare" : "Meeting on the station forecourt", caption: lang === 'fr' ? "Rencontres en gare" : "Meetings at the station" },
+  { src: "/images/gallery/gallery-40.jpg", alt: lang === 'fr' ? "Moment de partage entre participantes" : "A shared moment between participants", caption: lang === 'fr' ? "Moments de partage" : "Shared moments" }
+];
+
+// Images for activities (same order as translations)
+const activityImages = [
+  "/images/activities/activity-24.jpg",
+  "/images/gallery/gallery-16.jpg",
+  "/images/gallery/gallery-14.jpg",
+  "/images/activities/activity-29.jpg",
+  "/images/activities/activity-04.jpg",
+  "/images/gallery/gallery-15.jpg"
+];
+---
+
+<MainLayout title="Station-Cœur | Nous Avons Des Elles">
+  <!-- Hero Section -->
+  <Hero lang={lang} />
+
+  <!-- Presentation Section -->
+  <section id="presentation" class="py-20 lg:py-32 bg-white overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal-left">
+          <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-500 mb-4">
+            {t.presentation.subtitle}
+          </span>
+          <h2 class="section-title text-secondary-900 mb-6">
+            {t.presentation.title}
+          </h2>
+          <div class="space-y-4 text-secondary-600 leading-relaxed">
+            <p set:html={t.presentation.p1} />
+            <p>{t.presentation.p2}</p>
+            <p>{t.presentation.p3}</p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#objectifs" class="btn-primary">
+              {t.presentation.cta}
+            </a>
+            <a href="https://www.nousavonsdeselles.fr" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              {t.presentation.association}
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="relative isolate">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/activities/activity-13.jpg"
+                alt={lang === 'fr' ? "La gare, futur lieu de Station-Cœur" : "The station, future home of Station-Cœur"}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-200 rounded-2xl -z-10"></div>
+            <div class="absolute -top-4 -right-4 w-16 h-16 bg-accent-200 rounded-xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Objectives Section -->
+  <section id="objectifs" class="py-20 lg:py-32 gradient-bg">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.objectives.subtitle}
+        title={t.objectives.title}
+        description={t.objectives.description}
+      />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 stagger-children">
+        {t.objectives.items.map((objective, index) => (
+          <ObjectiveCard
+            title={objective.title}
+            description={objective.description}
+            icon={objectiveIcons[index]}
+            color={objectiveColors[index]}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section id="activites" class="py-20 lg:py-32 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.activities.subtitle}
+        title={t.activities.title}
+        description={t.activities.description}
+      />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 stagger-children">
+        {t.activities.items.map((activity, index) => (
+          <ActivityCard
+            title={activity.title}
+            description={activity.description}
+            image={activityImages[index]}
+            tags={activity.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Publics Section -->
+  <section id="publics" class="py-20 lg:py-32 bg-secondary-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.publics.subtitle}
+        title={t.publics.title}
+        description={t.publics.description}
+      />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 stagger-children">
+        {t.publics.items.map((publicItem, index) => (
+          <PublicCard
+            title={publicItem.title}
+            description={publicItem.description}
+            icon={publicIcons[index]}
+            color={publicColors[index]}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecological Approach Section -->
+  <section class="py-20 lg:py-32 bg-gradient-to-br from-accent-600 to-accent-700 text-white overflow-hidden relative">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal-left">
+          <span class="inline-block text-sm font-semibold uppercase tracking-wider text-accent-200 mb-4">
+            {t.ecological.subtitle}
+          </span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6">
+            {t.ecological.title}
+          </h2>
+          <div class="space-y-4 text-accent-100 leading-relaxed">
+            <p>{t.ecological.p1}</p>
+            <p>{t.ecological.p2}</p>
+          </div>
+          <div class="mt-8 grid sm:grid-cols-3 gap-6">
+            <div class="text-center sm:text-left">
+              <span class="block text-3xl font-display font-bold text-white">5T</span>
+              <span class="text-sm text-accent-200">{t.ecological.stats.reused}</span>
+            </div>
+            <div class="text-center sm:text-left">
+              <span class="block text-3xl font-display font-bold text-white">80%</span>
+              <span class="text-sm text-accent-200">{t.ecological.stats.reduction}</span>
+            </div>
+            <div class="text-center sm:text-left">
+              <span class="block text-3xl font-display font-bold text-white">200+</span>
+              <span class="text-sm text-accent-200">{t.ecological.stats.participants}</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="aspect-square rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center p-6">
+                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+              </div>
+              <div class="aspect-[4/3] rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center p-6">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="space-y-4 pt-8">
+              <div class="aspect-[4/3] rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center p-6">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+              </div>
+              <div class="aspect-square rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center p-6">
+                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 lg:py-32 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.testimonials.subtitle}
+        title={t.testimonials.title}
+        description={t.testimonials.description}
+      />
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 stagger-children">
+        {t.testimonials.items.map((testimonial) => (
+          <TestimonialCard
+            quote={testimonial.quote}
+            author={testimonial.author}
+            role={testimonial.role}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partenaires" class="py-20 lg:py-32 bg-secondary-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.partners.subtitle}
+        title={t.partners.title}
+        description={t.partners.description}
+      />
+      <PartnerGrid partners={partners} />
+      <div class="text-center mt-12 reveal">
+        <a href="#contact" class="btn-secondary">
+          {t.partners.cta}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="py-20 lg:py-32 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.gallery.subtitle}
+        title={t.gallery.title}
+        description={t.gallery.description}
+      />
+      <Gallery items={galleryItems} />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-32 bg-gradient-to-br from-primary-600 to-primary-700 overflow-hidden relative">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 text-balance">
+        {t.cta.title}
+      </h2>
+      <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
+        {t.cta.description}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary-600 bg-white rounded-full transition-all duration-300 hover:bg-primary-50 hover:shadow-xl hover:-translate-y-1">
+          {t.cta.primary}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a href="https://www.nousavonsdeselles.fr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white">
+          {t.cta.secondary}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 lg:py-32 bg-secondary-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionTitle
+        subtitle={t.contact.subtitle}
+        title={t.contact.title}
+        description={t.contact.info.description}
+      />
+      <ContactSection
+        email="contact@nousavonsdeselles.fr"
+        lang={lang}
+      />
+    </div>
+  </section>
+</MainLayout>

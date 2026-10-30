@@ -1,0 +1,9 @@
+# Cloudflare Pages Redirects
+# Documentation: https://developers.cloudflare.com/pages/platform/redirects
+
+# Language redirects (optional - uncomment if needed)
+# /en/index.html  /en/  301
+# /fr/index.html  /  301
+
+# Trailing slash normalization
+# /station-coeur  /station-coeur/  301

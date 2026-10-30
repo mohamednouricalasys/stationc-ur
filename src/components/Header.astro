@@ -1,0 +1,158 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Anchors must point back to the home page when rendered on secondary pages
+const homePath = getLocalizedPath('/', lang);
+const isHome = Astro.url.pathname.replace(/\/$/, '') === homePath.replace(/\/$/, '');
+const anchor = (id: string) => (isHome ? `#${id}` : `${homePath}#${id}`);
+
+const navLinks = [
+  { href: anchor('presentation'), label: t.nav.project },
+  { href: anchor('objectifs'), label: t.nav.objectives },
+  { href: anchor('activites'), label: t.nav.activities },
+  { href: anchor('publics'), label: t.nav.publics },
+  { href: anchor('partenaires'), label: t.nav.partners },
+  { href: anchor('contact'), label: t.nav.contact },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href={getLocalizedPath('/', lang)} class="flex items-center gap-3 group">
+        <div class="relative w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/20 transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-display font-bold text-secondary-900">Station-Cœur</span>
+          <span class="text-xs text-secondary-500 hidden sm:block">Nous Avons Des Elles</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden xl:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="px-4 py-2 text-sm font-medium text-secondary-600 rounded-full transition-all duration-200 hover:text-primary-600 hover:bg-primary-50"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div class="ml-2 border-l border-secondary-200 pl-2">
+          <LanguageSwitcher />
+        </div>
+        <a href={anchor('contact')} class="btn-primary ml-4 text-sm py-2.5">
+          {t.nav.joinAdventure}
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="xl:hidden flex items-center gap-2">
+        <LanguageSwitcher />
+        <button
+          type="button"
+          class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-secondary-100 text-secondary-600 transition-colors hover:bg-secondary-200"
+          id="mobile-menu-button"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <svg class="w-5 h-5 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg class="w-5 h-5 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="xl:hidden hidden" id="mobile-menu">
+      <div class="py-4 space-y-1 border-t border-secondary-100">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="block px-4 py-3 text-base font-medium text-secondary-700 rounded-xl transition-colors hover:bg-primary-50 hover:text-primary-600"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div class="pt-4">
+          <a href={anchor('contact')} class="btn-primary w-full text-center">
+            {t.nav.joinAdventure}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+</style>
+
+<script>
+  const header = document.getElementById('header');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = mobileMenuButton?.querySelector('.menu-icon');
+  const closeIcon = mobileMenuButton?.querySelector('.close-icon');
+
+  // Scroll effect
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  mobileMenuButton?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('hidden');
+
+    if (isOpen) {
+      mobileMenu?.classList.remove('hidden');
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

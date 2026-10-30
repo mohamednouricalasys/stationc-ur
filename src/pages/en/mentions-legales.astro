@@ -1,0 +1,75 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<MainLayout
+  title="Legal Notice | Station-Cœur"
+  description="Legal notice for Station-Cœur website, a project led by the association Nous Avons Des Elles."
+>
+  <section class="pt-32 pb-20 lg:pb-32">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1 class="section-title text-secondary-900 mb-8">{t.legal.title}</h1>
+
+      <div class="prose prose-lg prose-secondary max-w-none">
+        <h2>Website Publisher</h2>
+        <p>
+          <strong>Association Nous Avons Des Elles</strong><br />
+          [Address to be completed]<br />
+          Email: contact@nousavonsdeselles.fr
+        </p>
+
+        <h2>Publication Director</h2>
+        <p>[Name of responsible person to be completed]</p>
+
+        <h2>Hosting</h2>
+        <p>
+          [Hosting information to be completed]
+        </p>
+
+        <h2>Intellectual Property</h2>
+        <p>
+          All content on this site (texts, images, logos, etc.)
+          is protected by copyright. Any reproduction, even partial,
+          is subject to prior authorization.
+        </p>
+
+        <h2>Personal Data Protection</h2>
+        <p>
+          In accordance with the General Data Protection Regulation (GDPR),
+          you have the right to access, rectify, and delete your personal data.
+          To exercise this right, contact us at:
+          contact@nousavonsdeselles.fr
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          This site does not use advertising tracking cookies.
+          Only essential technical cookies for site operation may be used.
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <a href={getLocalizedPath('/', lang)} class="btn-secondary">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          {t.legal.back}
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-display font-bold text-secondary-900 mt-8 mb-4;
+  }
+
+  .prose p {
+    @apply text-secondary-600 mb-4 leading-relaxed;
+  }
+</style>
