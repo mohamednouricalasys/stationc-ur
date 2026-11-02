@@ -26,20 +26,23 @@ const navLinks = [
       <!-- Logo -->
       <a href={getLocalizedPath('/', lang)} class="flex items-center gap-3 group">
         <picture>
-          <source srcset="/images/logo/logo-nous-avons-des-elles.webp" type="image/webp" />
+          <source
+            type="image/webp"
+            srcset="/images/logo/logo-station-coeur-320.webp 320w, /images/logo/logo-station-coeur-640.webp 640w"
+            sizes="(min-width: 640px) 133px, 115px"
+          />
           <img
-            src="/images/logo/logo-nous-avons-des-elles.png"
-            alt="Logo Nous Avons Des Elles"
-            width="200"
-            height="200"
-            class="w-14 h-14 rounded-full object-cover shadow-md shadow-secondary-900/10 transition-transform duration-300 group-hover:scale-105"
+            src="/images/logo/logo-station-coeur-320.png"
+            srcset="/images/logo/logo-station-coeur-320.png 320w, /images/logo/logo-station-coeur-640.png 640w"
+            sizes="(min-width: 640px) 133px, 115px"
+            alt="Station-Cœur"
+            width="320"
+            height="157"
+            class="h-14 sm:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             fetchpriority="high"
           />
         </picture>
-        <div class="flex flex-col">
-          <span class="text-lg font-display font-bold text-secondary-900">Station-Cœur</span>
-          <span class="text-xs text-secondary-500 hidden sm:block">Nous Avons Des Elles</span>
-        </div>
+        <span class="text-xs text-secondary-500 hidden md:block">Nous Avons Des Elles</span>
       </a>
 
       <!-- Desktop Navigation -->

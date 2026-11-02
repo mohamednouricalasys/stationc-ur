@@ -101,7 +101,7 @@ stationcœur/
 ├── public/                 # Assets statiques
 │   ├── favicon.ico, favicon-*.png, icon-*.png/.webp, apple-touch-icon.png
 │   ├── site.webmanifest
-│   ├── images/logo/        # Logo Nous Avons Des Elles (.png + .webp)
+│   ├── images/logo/        # Logo Station-Cœur (320/640/960 px, .png + .webp)
 │   └── images/
 │
 ├── src/
