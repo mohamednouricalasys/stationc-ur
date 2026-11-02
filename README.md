@@ -345,8 +345,8 @@ Les traductions sont dans `src/i18n/translations.ts`. Modifier les valeurs pour 
 ### Ajouter des images
 
 1. Placer les images dans `public/images/`
-2. Référencer avec `/images/nom-image.jpg`
-3. Formats recommandés : WebP, AVIF
+2. Référencer avec `/images/nom-image.webp`
+3. Format utilisé : WebP (meilleur pour le SEO et la performance)
 
 ### Modifier les couleurs
 
