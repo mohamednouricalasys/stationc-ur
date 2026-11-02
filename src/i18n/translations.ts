@@ -169,25 +169,43 @@ export const translations = {
       subtitle: 'Témoignages',
       title: 'Ils parlent de nous',
       description:
-        'Découvrez les témoignages de ceux qui font vivre Station-Cœur au quotidien.',
+        'Des paroles recueillies auprès des habitantes, habitants et clientes qui font déjà vivre le projet.',
       items: [
         {
           quote:
-            "Station-Cœur m'a permis de retrouver confiance en moi et de me réinsérer professionnellement. Un lieu formidable !",
-          author: 'Marie D.',
-          role: 'Bénéficiaire',
+            "C'est magnifique. Il est chaud en plus, vraiment agréable. Je suis très contente d'avoir trouvé ça, c'est un beau cadeau de Noël. Merci, merci vraiment, ça me touche beaucoup.",
+          author: 'Une cliente',
+          role: 'Boutique solidaire',
         },
         {
           quote:
-            "Un vrai cœur battant dans notre quartier. On s'y sent accueilli et utile. Je recommande à tous !",
-          author: 'Jean-Pierre L.',
-          role: 'Bénévole',
+            "Pour moi, c'est du partage et des rencontres. Et aussi une manière de faire une petite action pour la planète, parce que chacun peut participer à l'avancée vers une meilleure transition écologique.",
+          author: 'Une participante',
+          role: 'Habitante engagée',
         },
         {
           quote:
-            'Le partenariat avec Station-Cœur nous permet de toucher des publics éloignés de nos services habituels.',
-          author: 'Sophie M.',
-          role: 'Partenaire institutionnel',
+            "Le collier aux petits coquillages que je t'ai acheté, Nadira : à chaque fois, on me demande où je l'ai trouvé ! Le bonheur de s'habiller comme on a toujours cherché à être, c'est sublime.",
+          author: 'Une cliente fidèle',
+          role: 'Boutique solidaire',
+        },
+        {
+          quote:
+            "Depuis que ma mère est décédée en 2006, je suis tout seul, je n'ai jamais eu d'enfant. Voir les enfants des autres, c'est comme si c'étaient les miens. Ce que je souhaiterais, c'est un lieu où l'on puisse se rencontrer, échanger des idées. Moi, j'aime beaucoup le Scrabble : j'aimerais bien trouver quelqu'un avec qui jouer.",
+          author: 'Un habitant',
+          role: 'Senior du quartier',
+        },
+        {
+          quote:
+            "C'est très positif, parce que ça permet à des gens de se rencontrer, et on a tellement besoin de rapprochement entre les personnes. Ça ne peut apporter que du bonheur.",
+          author: 'Une habitante',
+          role: 'Voisine du projet',
+        },
+        {
+          quote:
+            "Si je devais le définir en trois mots : la solidarité, la convivialité, l'amour. L'amour.",
+          author: 'Une bénévole',
+          role: 'Membre de la communauté',
         },
       ],
     },
@@ -428,25 +446,43 @@ export const translations = {
       subtitle: 'Testimonials',
       title: 'What they say about us',
       description:
-        'Discover the testimonials of those who bring Station-Cœur to life every day.',
+        'Words gathered from the residents and customers who already bring the project to life.',
       items: [
         {
           quote:
-            'Station-Cœur helped me regain confidence and reintegrate professionally. A wonderful place!',
-          author: 'Marie D.',
-          role: 'Beneficiary',
+            "It's beautiful. And it's warm too, really lovely. I'm so happy I found it, it's a wonderful Christmas present. Thank you, thank you so much, it really touches me.",
+          author: 'A customer',
+          role: 'Solidarity shop',
         },
         {
           quote:
-            'A true beating heart in our neighborhood. You feel welcomed and useful there. I recommend it to everyone!',
-          author: 'Jean-Pierre L.',
-          role: 'Volunteer',
+            "For me, it's about sharing and meeting people. And also a way of doing a small thing for the planet, because everyone can help move towards a better ecological transition.",
+          author: 'A participant',
+          role: 'Engaged resident',
         },
         {
           quote:
-            'The partnership with Station-Cœur allows us to reach audiences far from our usual services.',
-          author: 'Sophie M.',
-          role: 'Institutional partner',
+            "The little seashell necklace I bought from you, Nadira: every time, people ask me where I got it! The joy of dressing the way you've always wanted to be, it's wonderful.",
+          author: 'A regular customer',
+          role: 'Solidarity shop',
+        },
+        {
+          quote:
+            "Since my mother passed away in 2006, I've been on my own, I never had children. Seeing other people's children, it's as if they were mine. What I'd like is a place where people can meet and share ideas. I really love Scrabble: I'd love to find someone to play with.",
+          author: 'A resident',
+          role: 'Local senior',
+        },
+        {
+          quote:
+            "It's very positive, because it lets people meet each other, and we need so much to bring people closer together. It can only bring happiness.",
+          author: 'A resident',
+          role: 'Project neighbour',
+        },
+        {
+          quote:
+            "If I had to describe it in three words: solidarity, friendliness, love. Love.",
+          author: 'A volunteer',
+          role: 'Community member',
         },
       ],
     },
