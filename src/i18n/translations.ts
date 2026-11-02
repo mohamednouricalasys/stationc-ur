@@ -18,22 +18,18 @@ export const translations = {
       partners: 'Partenaires',
       contact: 'Contact',
       joinAdventure: "Rejoindre l'aventure",
+      backToAssociation: 'Retour au site Nous Avons Des Elles',
     },
 
     // Hero
     hero: {
-      badge: 'Nous Avons Des Elles',
       title: 'Station-Cœur',
-      subtitle: 'Un tiers-lieu solidaire au cœur de la gare',
+      titleLine1: 'Un tiers-lieu solidaire',
+      titleLine2: 'au cœur de la gare',
       description:
         "Porté par l'association Nous Avons Des Elles, Station-Cœur est un espace de rencontre, de partage et d'entraide ouvert à tous. Venez découvrir un lieu unique où solidarité et convivialité sont au rendez-vous.",
       primaryCta: 'Découvrir le projet',
       secondaryCta: 'Nous contacter',
-      stats: {
-        years: "Années d'engagement",
-        beneficiaries: 'Bénéficiaires',
-        partners: 'Partenaires',
-      },
       scrollLabel: 'Découvrir',
     },
 
@@ -43,7 +39,7 @@ export const translations = {
       title: 'Un tiers-lieu solidaire au cœur de la gare',
       p1: "<strong>Station-Cœur</strong> est un projet innovant porté par l'association <strong>Nous Avons Des Elles</strong>. Implanté au sein d'une gare, ce tiers-lieu solidaire vise à créer un espace de vie, de partage et d'entraide accessible à tous.",
       p2: "Notre ambition est de transformer un lieu de passage en un véritable lieu de vie, où chacun peut trouver sa place, qu'il soit habitant du quartier, voyageur de passage, ou personne en recherche d'accompagnement.",
-      p3: "À travers une ressourcerie, un café associatif, des ateliers et un accompagnement personnalisé, Station-Cœur œuvre pour l'inclusion sociale, l'économie circulaire et la transition écologique.",
+      p3: "À travers une boutique ressourcerie, un café associatif, des ateliers de réparation et des actions dédiées au bien-vieillir, Station-Cœur œuvre pour le lien social, l'inclusion par l'emploi, l'économie circulaire et la transition écologique.",
       cta: 'Découvrir nos objectifs',
       association: "L'association",
     },
@@ -66,9 +62,9 @@ export const translations = {
             'Encourager le réemploi, la réparation et le don d\'objets pour réduire les déchets et préserver les ressources.',
         },
         {
-          title: "Accompagner vers l'emploi",
+          title: 'Créer des emplois inclusifs',
           description:
-            "Proposer des formations, des ateliers et un accompagnement personnalisé pour favoriser l'insertion professionnelle.",
+            "Recruter et employer directement des personnes éloignées de l'emploi, avec l'objectif de créer au moins 8 postes.",
         },
         {
           title: "Favoriser l'inclusion",
@@ -76,6 +72,64 @@ export const translations = {
             'Accueillir tous les publics sans distinction et créer un espace accessible et bienveillant pour chacun.',
         },
       ],
+    },
+
+    // Bien vieillir
+    ageing: {
+      subtitle: 'Bien vieillir',
+      title: 'Faire de la gare un lieu repère du bien-vieillir',
+      p1: "Station-Cœur accorde une place particulière aux personnes âgées. Accessible directement en gare, le tiers-lieu offre aux seniors un lieu de proximité pour sortir de l'isolement, rester actifs et tisser des liens.",
+      p2: "Avec « Les liens de cœur », seniors et familles s'entraident : écouter une maman solo, lire avec les enfants, prendre des nouvelles, proposer une sortie… Un membre de l'équipe facilite les premières rencontres et reste disponible pour les accompagner.",
+      pillars: [
+        {
+          title: "Lutter contre l'isolement",
+          description: "Un lieu accueillant et facile d'accès pour sortir de chez soi et rencontrer du monde.",
+        },
+        {
+          title: "Préserver l'autonomie",
+          description: 'Des parcours de prévention pour rester en forme et entretenir son autonomie.',
+        },
+        {
+          title: 'Soutenir les aidants',
+          description: "De l'écoute et des relais vers les ressources adaptées.",
+        },
+        {
+          title: 'Relier les générations',
+          description: 'Jeux, cuisine, culture et entraide pour partager du temps entre seniors, familles et enfants.',
+        },
+      ],
+      partnersTitle: 'Des partenaires engagés pour le bien-vieillir',
+      partners: [
+        {
+          name: "CNAV – L'Assurance retraite",
+          description: "Lutte contre l'isolement et accès des seniors à un lieu de proximité.",
+        },
+        {
+          name: 'PRIF',
+          description: "Prévention Retraite Île-de-France : des parcours de prévention pour entretenir l'autonomie.",
+        },
+        {
+          name: 'Malakoff Humanis',
+          description: 'Soutien aux actions de bien-vieillir et au volet aidants.',
+        },
+      ],
+    },
+
+    // Inclusion par l'emploi
+    employment: {
+      subtitle: "Inclusion par l'emploi",
+      title: 'Créer des emplois pour celles et ceux qui en sont éloignés',
+      p1: "Station-Cœur est aussi un lieu qui crée de l'emploi. L'association recrute et emploie directement des personnes éloignées de l'emploi pour faire vivre le tiers-lieu au quotidien.",
+      p2: "L'éloignement de l'emploi peut avoir de multiples causes. À Station-Cœur, chacune et chacun peut trouver un poste à sa mesure, au sein d'une équipe bienveillante.",
+      factorsTitle: "L'éloignement de l'emploi peut être lié à :",
+      factors: [
+        'Une situation de handicap',
+        'Des difficultés personnelles ou sociales',
+        "D'autres situations de vulnérabilité",
+      ],
+      goalValue: '8',
+      goalLabel: 'postes au minimum',
+      goalDescription: "C'est notre objectif de création d'emplois au sein de Station-Cœur.",
     },
 
     // Activities
@@ -141,8 +195,8 @@ export const translations = {
             "Un point d'accueil en gare pour tous ceux qui passent et souhaitent faire une pause.",
         },
         {
-          title: 'Personnes en insertion',
-          description: "Un accompagnement personnalisé vers l'emploi et l'autonomie.",
+          title: "Personnes éloignées de l'emploi",
+          description: 'Des postes créés au sein du lieu pour retrouver une activité professionnelle.',
         },
         {
           title: 'Associations locales',
@@ -157,11 +211,6 @@ export const translations = {
       title: 'Une démarche écologique et solidaire',
       p1: "Au cœur de notre projet, l'économie circulaire et la transition écologique sont des valeurs fondamentales. Nous croyons qu'il est possible de concilier solidarité et respect de l'environnement.",
       p2: "À travers notre ressourcerie, nos ateliers de réparation et nos actions de sensibilisation, nous encourageons le réemploi, la réduction des déchets et une consommation plus responsable.",
-      stats: {
-        reused: "d'objets réemployés / an",
-        reduction: 'de réduction des déchets',
-        participants: 'participants aux ateliers',
-      },
     },
 
     // Testimonials
@@ -295,22 +344,18 @@ export const translations = {
       partners: 'Partners',
       contact: 'Contact',
       joinAdventure: 'Join the adventure',
+      backToAssociation: 'Back to the Nous Avons Des Elles website',
     },
 
     // Hero
     hero: {
-      badge: 'Nous Avons Des Elles',
       title: 'Station-Cœur',
-      subtitle: 'A solidarity hub in the heart of the station',
+      titleLine1: 'A solidarity hub',
+      titleLine2: 'in the heart of the station',
       description:
         'Led by the association Nous Avons Des Elles, Station-Cœur is a meeting space for sharing and mutual aid, open to everyone. Come discover a unique place where solidarity and conviviality await you.',
       primaryCta: 'Discover the project',
       secondaryCta: 'Contact us',
-      stats: {
-        years: 'Years of commitment',
-        beneficiaries: 'Beneficiaries',
-        partners: 'Partners',
-      },
       scrollLabel: 'Discover',
     },
 
@@ -320,7 +365,7 @@ export const translations = {
       title: 'A solidarity hub in the heart of the station',
       p1: '<strong>Station-Cœur</strong> is an innovative project led by the association <strong>Nous Avons Des Elles</strong>. Located within a train station, this solidarity hub aims to create a living space for sharing and mutual aid, accessible to all.',
       p2: 'Our ambition is to transform a transit space into a true living place, where everyone can find their place, whether they are neighborhood residents, passing travelers, or people seeking support.',
-      p3: 'Through a thrift store, an associative café, workshops, and personalized support, Station-Cœur works for social inclusion, circular economy, and ecological transition.',
+      p3: 'Through a thrift store, an associative café, repair workshops, and actions dedicated to healthy ageing, Station-Cœur works for social bonds, inclusion through employment, circular economy, and ecological transition.',
       cta: 'Discover our objectives',
       association: 'The association',
     },
@@ -343,9 +388,9 @@ export const translations = {
             'Encourage reuse, repair, and donation of objects to reduce waste and preserve resources.',
         },
         {
-          title: 'Support employment',
+          title: 'Create inclusive jobs',
           description:
-            'Offer training, workshops, and personalized support to promote professional integration.',
+            'Directly recruit and employ people who are far from the job market, with the goal of creating at least 8 positions.',
         },
         {
           title: 'Foster inclusion',
@@ -353,6 +398,64 @@ export const translations = {
             'Welcome all audiences without distinction and create an accessible and caring space for everyone.',
         },
       ],
+    },
+
+    // Healthy ageing
+    ageing: {
+      subtitle: 'Healthy ageing',
+      title: 'Making the station a landmark for healthy ageing',
+      p1: 'Station-Cœur gives a special place to older people. Directly accessible at the station, the hub offers seniors a local place to break isolation, stay active, and build connections.',
+      p2: 'With "Les liens de cœur", seniors and families help each other: listening to a single mother, reading with children, checking in, suggesting an outing… A team member facilitates the first meetings and remains available to support them.',
+      pillars: [
+        {
+          title: 'Fighting isolation',
+          description: 'A welcoming, easy-to-reach place to get out and meet people.',
+        },
+        {
+          title: 'Preserving autonomy',
+          description: 'Prevention programmes to stay fit and maintain independence.',
+        },
+        {
+          title: 'Supporting caregivers',
+          description: 'A listening ear and links to the right resources.',
+        },
+        {
+          title: 'Connecting generations',
+          description: 'Games, cooking, culture, and mutual aid to share time between seniors, families, and children.',
+        },
+      ],
+      partnersTitle: 'Partners committed to healthy ageing',
+      partners: [
+        {
+          name: "CNAV – L'Assurance retraite",
+          description: 'Fighting isolation and giving seniors access to a local place.',
+        },
+        {
+          name: 'PRIF',
+          description: 'Prévention Retraite Île-de-France: prevention programmes to maintain autonomy.',
+        },
+        {
+          name: 'Malakoff Humanis',
+          description: 'Support for healthy-ageing actions and caregiver support.',
+        },
+      ],
+    },
+
+    // Inclusion through employment
+    employment: {
+      subtitle: 'Inclusion through employment',
+      title: 'Creating jobs for people far from employment',
+      p1: 'Station-Cœur is also a place that creates jobs. The association directly recruits and employs people who are far from the job market to keep the hub running day to day.',
+      p2: 'Distance from employment can have many causes. At Station-Cœur, everyone can find a position suited to them, within a caring team.',
+      factorsTitle: 'Distance from employment may be linked to:',
+      factors: [
+        'A disability',
+        'Personal or social difficulties',
+        'Other situations of vulnerability',
+      ],
+      goalValue: '8',
+      goalLabel: 'positions minimum',
+      goalDescription: 'This is our job-creation goal within Station-Cœur.',
     },
 
     // Activities
@@ -418,8 +521,8 @@ export const translations = {
             'A welcome point at the station for all those passing through who wish to take a break.',
         },
         {
-          title: 'People in integration',
-          description: 'Personalized support towards employment and autonomy.',
+          title: 'People far from employment',
+          description: 'Jobs created within the hub to return to professional activity.',
         },
         {
           title: 'Local associations',
@@ -434,11 +537,6 @@ export const translations = {
       title: 'An ecological and solidarity approach',
       p1: 'At the heart of our project, circular economy and ecological transition are fundamental values. We believe it is possible to reconcile solidarity and respect for the environment.',
       p2: 'Through our thrift store, repair workshops, and awareness actions, we encourage reuse, waste reduction, and more responsible consumption.',
-      stats: {
-        reused: 'of items reused / year',
-        reduction: 'waste reduction',
-        participants: 'workshop participants',
-      },
     },
 
     // Testimonials

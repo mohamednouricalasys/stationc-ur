@@ -17,11 +17,6 @@ const t = useTranslations(lang);
     <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-warm-200/30 rounded-full blur-3xl animate-pulse-soft animate-delay-500"></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/40 rounded-full blur-3xl"></div>
 
-    <!-- Floating shapes -->
-    <div class="absolute top-20 right-1/4 w-4 h-4 bg-primary-400 rounded-full animate-float opacity-60"></div>
-    <div class="absolute top-1/3 left-1/4 w-3 h-3 bg-accent-400 rounded-full animate-float animate-delay-200 opacity-60"></div>
-    <div class="absolute bottom-1/3 right-1/3 w-5 h-5 bg-warm-400 rounded-full animate-float animate-delay-400 opacity-60"></div>
-
     <!-- Grid pattern -->
     <div class="absolute inset-0 bg-[linear-gradient(rgba(61,43,31,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(61,43,31,0.025)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
   </div>
@@ -31,16 +26,13 @@ const t = useTranslations(lang);
       <!-- Content -->
       <div class="text-center lg:text-left">
         <div class="eyebrow mb-6 animate-fade-in">
-          <span>{t.hero.badge}</span>
+          <span>{t.hero.title}</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6 animate-fade-in-up">
-          <span class="text-primary-400">{t.hero.title}</span>
+        <h1 class="font-display font-bold mb-8 animate-fade-in-up text-balance">
+          <span class="block text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.4rem] leading-[1.15] lg:whitespace-nowrap text-primary-600">{t.hero.titleLine1}</span>
+          <span class="block mt-3 lg:mt-4 text-3xl sm:text-4xl lg:text-[2.2rem] xl:text-[2.8rem] leading-[1.2] italic text-warm-500">{t.hero.titleLine2}</span>
         </h1>
-
-        <p class="text-xl sm:text-2xl lg:text-3xl font-display font-bold italic text-warm-500 mb-6 animate-fade-in-up animate-delay-100 text-balance">
-          {t.hero.subtitle}
-        </p>
 
         <p class="text-lg text-secondary-800 max-w-xl mx-auto lg:mx-0 mb-10 animate-fade-in-up animate-delay-200 leading-relaxed">
           {t.hero.description}
@@ -56,22 +48,6 @@ const t = useTranslations(lang);
           <a href="#contact" class="btn-secondary">
             {t.hero.secondaryCta}
           </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-6 mt-12 pt-10 border-t border-secondary-200 animate-fade-in-up animate-delay-400">
-          <div class="text-center lg:text-left">
-            <span class="block text-3xl lg:text-4xl font-display font-bold text-primary-600">6+</span>
-            <span class="text-sm text-secondary-500">{t.hero.stats.years}</span>
-          </div>
-          <div class="text-center lg:text-left">
-            <span class="block text-3xl lg:text-4xl font-display font-bold text-accent-600">100+</span>
-            <span class="text-sm text-secondary-500">{t.hero.stats.beneficiaries}</span>
-          </div>
-          <div class="text-center lg:text-left">
-            <span class="block text-3xl lg:text-4xl font-display font-bold text-warm-600">10+</span>
-            <span class="text-sm text-secondary-500">{t.hero.stats.partners}</span>
-          </div>
         </div>
       </div>
 

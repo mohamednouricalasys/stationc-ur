@@ -8,7 +8,7 @@ const currentPath = getCurrentPath(Astro.url, currentLang);
 <div class="relative" data-lang-switcher>
   <button
     type="button"
-    class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-secondary-600 rounded-lg transition-colors hover:text-primary-600 hover:bg-primary-50"
+    class="flex items-center gap-2 px-3 py-1.5 text-sm text-secondary-700 rounded-lg transition-colors hover:text-primary-700"
     aria-label="Change language"
     aria-expanded="false"
     data-lang-button
@@ -24,7 +24,7 @@ const currentPath = getCurrentPath(Astro.url, currentLang);
 
   <div
     data-lang-dropdown
-    class="absolute right-0 mt-2 w-36 bg-white rounded-xl shadow-lg shadow-secondary-900/10 border border-secondary-100 py-2 hidden z-50"
+    class="absolute right-0 mt-2 w-36 bg-secondary-100 rounded-lg shadow-md shadow-secondary-900/5 border border-secondary-300/50 py-1 hidden z-50"
   >
     {Object.entries(languages).map(([lang, label]) => (
       <a
@@ -32,8 +32,8 @@ const currentPath = getCurrentPath(Astro.url, currentLang);
         class:list={[
           'flex items-center gap-2 px-4 py-2 text-sm transition-colors',
           lang === currentLang
-            ? 'text-primary-600 bg-primary-50 font-medium'
-            : 'text-secondary-600 hover:text-primary-600 hover:bg-primary-50',
+            ? 'text-primary-700 font-medium'
+            : 'text-secondary-700 hover:text-primary-700 hover:bg-secondary-200/50',
         ]}
       >
         {lang === currentLang && (

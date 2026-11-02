@@ -7,7 +7,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6rem;
   }
 
   body {
@@ -41,7 +41,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-[3.25rem] font-display font-bold text-secondary-800 leading-tight;
+    @apply text-3xl md:text-4xl lg:text-[3.25rem] font-display font-bold text-secondary-800 leading-snug;
   }
 
   .section-subtitle {
