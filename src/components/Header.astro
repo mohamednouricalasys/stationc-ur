@@ -25,11 +25,17 @@ const navLinks = [
     <nav class="flex items-center justify-between py-4">
       <!-- Logo -->
       <a href={getLocalizedPath('/', lang)} class="flex items-center gap-3 group">
-        <div class="relative w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/20 transition-transform duration-300 group-hover:scale-105">
-          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-          </svg>
-        </div>
+        <picture>
+          <source srcset="/images/logo/logo-nous-avons-des-elles.webp" type="image/webp" />
+          <img
+            src="/images/logo/logo-nous-avons-des-elles.png"
+            alt="Logo Nous Avons Des Elles"
+            width="200"
+            height="200"
+            class="w-14 h-14 rounded-full object-cover shadow-md shadow-secondary-900/10 transition-transform duration-300 group-hover:scale-105"
+            fetchpriority="high"
+          />
+        </picture>
         <div class="flex flex-col">
           <span class="text-lg font-display font-bold text-secondary-900">Station-Cœur</span>
           <span class="text-xs text-secondary-500 hidden sm:block">Nous Avons Des Elles</span>
@@ -103,8 +109,8 @@ const navLinks = [
   }
 
   header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    background: rgba(251, 244, 235, 0.95); /* crème #FBF4EB */
+    box-shadow: 0 4px 30px rgba(61, 43, 31, 0.08);
   }
 </style>
 

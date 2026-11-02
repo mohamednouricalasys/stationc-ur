@@ -73,10 +73,10 @@ const activityImages = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="reveal-left">
-          <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-500 mb-4">
+          <span class="eyebrow mb-4">
             {t.presentation.subtitle}
           </span>
-          <h2 class="section-title text-secondary-900 mb-6">
+          <h2 class="section-title text-secondary-800 mb-6">
             {t.presentation.title}
           </h2>
           <div class="space-y-4 text-secondary-600 leading-relaxed">
@@ -98,7 +98,7 @@ const activityImages = [
         </div>
         <div class="reveal-right">
           <div class="relative isolate">
-            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+            <div class="aspect-[4/3] rounded-[20px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.35)]">
               <img
                 src="/images/activities/activity-13.webp"
                 alt={lang === 'fr' ? "La gare, futur lieu de Station-Cœur" : "The station, future home of Station-Cœur"}
@@ -107,7 +107,7 @@ const activityImages = [
               />
             </div>
             <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-200 rounded-2xl -z-10"></div>
-            <div class="absolute -top-4 -right-4 w-16 h-16 bg-accent-200 rounded-xl -z-10"></div>
+            <div class="absolute -top-4 -right-4 w-16 h-16 bg-warm-200 rounded-xl -z-10"></div>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const activityImages = [
   </section>
 
   <!-- Ecological Approach Section -->
-  <section class="py-20 lg:py-32 bg-gradient-to-br from-accent-600 to-accent-700 text-white overflow-hidden relative">
+  <section class="py-20 lg:py-32 bg-primary-500 text-white overflow-hidden relative">
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
@@ -186,28 +186,28 @@ const activityImages = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="reveal-left">
-          <span class="inline-block text-sm font-semibold uppercase tracking-wider text-accent-200 mb-4">
+          <span class="eyebrow !text-secondary-50 mb-4">
             {t.ecological.subtitle}
           </span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6 text-secondary-50">
             {t.ecological.title}
           </h2>
-          <div class="space-y-4 text-accent-100 leading-relaxed">
+          <div class="space-y-4 text-white leading-relaxed">
             <p>{t.ecological.p1}</p>
             <p>{t.ecological.p2}</p>
           </div>
           <div class="mt-8 grid sm:grid-cols-3 gap-6">
             <div class="text-center sm:text-left">
               <span class="block text-3xl font-display font-bold text-white">5T</span>
-              <span class="text-sm text-accent-200">{t.ecological.stats.reused}</span>
+              <span class="text-sm text-secondary-100">{t.ecological.stats.reused}</span>
             </div>
             <div class="text-center sm:text-left">
               <span class="block text-3xl font-display font-bold text-white">80%</span>
-              <span class="text-sm text-accent-200">{t.ecological.stats.reduction}</span>
+              <span class="text-sm text-secondary-100">{t.ecological.stats.reduction}</span>
             </div>
             <div class="text-center sm:text-left">
               <span class="block text-3xl font-display font-bold text-white">200+</span>
-              <span class="text-sm text-accent-200">{t.ecological.stats.participants}</span>
+              <span class="text-sm text-secondary-100">{t.ecological.stats.participants}</span>
             </div>
           </div>
         </div>
@@ -296,7 +296,7 @@ const activityImages = [
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 lg:py-32 bg-gradient-to-br from-primary-600 to-primary-700 overflow-hidden relative">
+  <section class="py-20 lg:py-32 bg-secondary-800 overflow-hidden relative">
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
       <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
@@ -305,11 +305,11 @@ const activityImages = [
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 text-balance">
         {t.cta.title}
       </h2>
-      <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
+      <p class="text-xl text-secondary-200 mb-10 max-w-2xl mx-auto">
         {t.cta.description}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary-600 bg-white rounded-full transition-all duration-300 hover:bg-primary-50 hover:shadow-xl hover:-translate-y-1">
+        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-primary-500 rounded-full transition-all duration-300 hover:bg-primary-600 hover:shadow-xl hover:-translate-y-1">
           {t.cta.primary}
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -331,7 +331,7 @@ const activityImages = [
         description={t.contact.info.description}
       />
       <ContactSection
-        email="contact@nousavonsdeselles.fr"
+        email="nadira@nousavonsdeselles.fr"
         lang={lang}
       />
     </div>

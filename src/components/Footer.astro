@@ -30,11 +30,17 @@ const externalLinks = [
       <!-- Brand -->
       <div class="lg:col-span-2">
         <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-500 rounded-xl flex items-center justify-center">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </div>
+          <picture>
+            <source srcset="/images/logo/logo-nous-avons-des-elles.webp" type="image/webp" />
+            <img
+              src="/images/logo/logo-nous-avons-des-elles.png"
+              alt="Logo Nous Avons Des Elles"
+              width="200"
+              height="200"
+              class="w-20 h-20 rounded-2xl object-cover"
+              loading="lazy"
+            />
+          </picture>
           <div>
             <span class="text-xl font-display font-bold">Station-Cœur</span>
             <span class="block text-sm text-secondary-400">Nous Avons Des Elles</span>

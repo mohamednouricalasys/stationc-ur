@@ -99,7 +99,9 @@ i18n: {
 ```
 stationcœur/
 ├── public/                 # Assets statiques
-│   ├── favicon.svg
+│   ├── favicon.ico, favicon-*.png, icon-*.png/.webp, apple-touch-icon.png
+│   ├── site.webmanifest
+│   ├── images/logo/        # Logo Nous Avons Des Elles (.png + .webp)
 │   └── images/
 │
 ├── src/

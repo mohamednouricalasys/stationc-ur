@@ -23,7 +23,7 @@ const alignClasses = {
 
 const colorClasses = light
   ? 'text-white'
-  : 'text-secondary-900';
+  : 'text-secondary-800';
 
 const subtitleColorClasses = light
   ? 'text-white/80'
@@ -32,7 +32,7 @@ const subtitleColorClasses = light
 
 <div class={`max-w-3xl mb-12 lg:mb-16 ${alignClasses[align]} reveal`}>
   {subtitle && (
-    <span class={`inline-block text-sm font-semibold uppercase tracking-wider mb-4 ${light ? 'text-primary-300' : 'text-primary-500'}`}>
+    <span class={`eyebrow mb-4 ${light ? '!text-secondary-50' : ''}`}>
       {subtitle}
     </span>
   )}

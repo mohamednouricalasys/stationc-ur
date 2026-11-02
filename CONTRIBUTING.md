@@ -43,4 +43,4 @@ npm run dev
 
 ## Questions
 
-Pour toute question, contactez l'equipe via [contact@nousavonsdeselles.fr](mailto:contact@nousavonsdeselles.fr).
+Pour toute question, contactez l'equipe via [nadira@nousavonsdeselles.fr](mailto:nadira@nousavonsdeselles.fr).
