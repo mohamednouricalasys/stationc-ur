@@ -1,7 +1,12 @@
 import { translations, defaultLang, type Language, type TranslationKeys } from './translations';
 
 export function getLangFromUrl(url: URL): Language {
-  const [, lang] = url.pathname.split('/');
+  // Remove base URL from pathname
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const pathname = url.pathname.startsWith(base)
+    ? url.pathname.slice(base.length)
+    : url.pathname;
+  const [, lang] = pathname.split('/');
   if (lang in translations) {
     return lang as Language;
   }
@@ -15,14 +20,16 @@ export function useTranslations(lang: Language): TranslationKeys {
 export function getLocalizedPath(path: string, lang: Language): string {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  // Get base URL from Astro config (e.g., "/station-coeur")
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   // For default language (fr), don't add prefix
   if (lang === defaultLang) {
-    return `/${cleanPath}`;
+    return `${base}/${cleanPath}`;
   }
 
   // For other languages, add prefix
-  return `/${lang}/${cleanPath}`;
+  return `${base}/${lang}/${cleanPath}`;
 }
 
 export function getAlternateLanguage(lang: Language): Language {
@@ -30,11 +37,15 @@ export function getAlternateLanguage(lang: Language): Language {
 }
 
 export function getCurrentPath(url: URL, lang: Language): string {
-  const pathname = url.pathname;
+  // Remove base URL from pathname
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  let pathname = url.pathname.startsWith(base)
+    ? url.pathname.slice(base.length)
+    : url.pathname;
 
   // Remove language prefix if present
   if (lang !== defaultLang && pathname.startsWith(`/${lang}`)) {
-    return pathname.slice(lang.length + 1) || '/';
+    pathname = pathname.slice(lang.length + 1) || '/';
   }
 
   return pathname;

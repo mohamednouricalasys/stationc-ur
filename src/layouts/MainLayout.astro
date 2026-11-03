@@ -12,6 +12,7 @@ interface Props {
 
 const lang = getLangFromUrl(Astro.url);
 const alternateLang = getAlternateLanguage(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const defaultDescriptions = {
   fr: "Station-Cœur, un tiers-lieu solidaire porté par l'association Nous Avons Des Elles. Découvrez notre projet, nos activités et rejoignez l'aventure !",
@@ -21,7 +22,7 @@ const defaultDescriptions = {
 const {
   title,
   description = defaultDescriptions[lang],
-  ogImage = "/images/og-image.webp"
+  ogImage = `${base}/images/og-image.webp`
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -62,15 +63,15 @@ const alternateURL = new URL(getLocalizedPath(currentPath, alternateLang), Astro
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang={lang} href={canonicalURL} />
     <link rel="alternate" hreflang={alternateLang} href={alternateURL} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(`${base}/`, Astro.site)} />
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/webp" sizes="192x192" href="/icon-192.webp" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href={`${base}/favicon.ico`} sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${base}/favicon-16x16.png`} />
+    <link rel="icon" type="image/webp" sizes="192x192" href={`${base}/icon-192.webp`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
     <meta name="theme-color" content="#8eaf90" />
 
     <!-- Preconnect to fonts -->
@@ -86,7 +87,7 @@ const alternateURL = new URL(getLocalizedPath(currentPath, alternateLang), Astro
       "name": "Station-Cœur",
       "description": description,
       "url": canonicalURL,
-      "logo": new URL('/images/logo/logo-station-coeur-640.png', Astro.site),
+      "logo": new URL(`${base}/images/logo/logo-station-coeur-640.png`, Astro.site),
       "inLanguage": lang,
       "parentOrganization": {
         "@type": "Organization",

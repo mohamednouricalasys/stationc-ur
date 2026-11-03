@@ -8,7 +8,8 @@ Site vitrine multilingue (FR/EN) pour le projet **Station-Cœur**, un tiers-lieu
 - **Styles** : [Tailwind CSS](https://tailwindcss.com) 3.x
 - **Langage** : TypeScript
 - **i18n** : Système intégré Astro (FR par défaut, EN disponible)
-- **Déploiement** : Vercel, Cloudflare Pages, Netlify, ou tout hébergeur statique
+- **Déploiement** : OVH (FTP/SSH), Vercel, Cloudflare Pages, Netlify, ou tout hébergeur statique
+- **Hébergement** : Sous-dossier `/station-coeur/` du site WordPress nousavonsdeselles.fr
 
 ---
 
@@ -54,8 +55,8 @@ Le site supporte deux langues :
 
 | Langue | URL | Défaut |
 |--------|-----|--------|
-| Français | `/` | Oui |
-| English | `/en/` | Non |
+| Français | `/station-coeur/` | Oui |
+| English | `/station-coeur/en/` | Non |
 
 ### Structure des traductions
 
@@ -322,19 +323,149 @@ netlify deploy --prod --dir=dist
 
 ---
 
+## Déploiement manuel sur OVH (FTP/SSH avec FileZilla)
+
+Le site Station-Cœur est hébergé en tant que sous-dossier du site WordPress existant `nousavonsdeselles.fr`. Voici comment déployer manuellement via FTP.
+
+### Prérequis
+
+- **FileZilla** installé : [filezilla-project.org](https://filezilla-project.org/download.php)
+- **Identifiants FTP OVH** (fournis par OVH lors de la création de l'hébergement)
+
+### Étape 1 : Générer le build de production
+
+```bash
+# Dans le dossier du projet
+npm run build
+```
+
+Cela génère le dossier `dist/` contenant tous les fichiers statiques.
+
+### Étape 2 : Configurer FileZilla
+
+1. **Ouvrir FileZilla**
+
+2. **Créer une nouvelle connexion** :
+   - Menu **Fichier** > **Gestionnaire de Sites** > **Nouveau site**
+   - Nommer la connexion : `OVH - Nous Avons Des Elles`
+
+3. **Paramètres de connexion** :
+
+   | Champ | Valeur |
+   |-------|--------|
+   | Protocole | SFTP - SSH File Transfer Protocol |
+   | Hôte | `ftp.cluster0XX.hosting.ovh.net` (voir email OVH) |
+   | Port | `22` |
+   | Type d'authentification | Normale |
+   | Identifiant | Votre login FTP OVH |
+   | Mot de passe | Votre mot de passe FTP |
+
+   > **Alternative FTP classique** : Port `21`, Protocole `FTP - File Transfer Protocol`, Chiffrement `Connexion FTP explicite sur TLS si disponible`
+
+4. **Cliquer sur Connexion**
+
+### Étape 3 : Naviguer vers le bon dossier
+
+1. **Côté serveur (panneau de droite)** :
+   - Naviguer vers le dossier racine du site WordPress : `/www/` ou `/public_html/`
+   - Créer le dossier `station-coeur` s'il n'existe pas (clic droit > Créer un dossier)
+   - Entrer dans `/www/station-coeur/`
+
+2. **Côté local (panneau de gauche)** :
+   - Naviguer vers le dossier `dist/` de votre projet
+
+### Étape 4 : Transférer les fichiers
+
+1. **Sélectionner tous les fichiers** dans `dist/` (Ctrl+A)
+
+2. **Glisser-déposer** vers le panneau serveur (ou clic droit > Envoyer)
+
+3. **Si des fichiers existent déjà** :
+   - Choisir **Écraser** ou **Écraser si la source est plus récente**
+   - Cocher **Toujours utiliser cette action**
+
+4. **Attendre la fin du transfert** (vérifier la file d'attente en bas)
+
+### Étape 5 : Vérifier le déploiement
+
+1. Ouvrir dans le navigateur : **https://nousavonsdeselles.fr/station-coeur/**
+2. Vérifier que :
+   - Les styles s'affichent correctement
+   - Les images chargent
+   - La navigation fonctionne
+   - Le changement de langue FR ↔ EN fonctionne
+
+### Structure sur le serveur
+
+```
+/www/                              # Racine WordPress
+├── wp-content/
+├── wp-admin/
+├── index.php
+├── ...                            # Autres fichiers WordPress
+│
+└── station-coeur/                 # ← Site Astro déployé ici
+    ├── index.html
+    ├── en/
+    │   └── index.html
+    ├── mentions-legales/
+    │   └── index.html
+    ├── _astro/                    # CSS/JS générés
+    ├── images/
+    ├── favicon.ico
+    ├── .htaccess
+    └── site.webmanifest
+```
+
+### Commandes SSH (alternative avancée)
+
+Si vous avez un accès SSH à l'hébergement OVH :
+
+```bash
+# Connexion SSH
+ssh votrelogin@ssh.cluster0XX.hosting.ovh.net
+
+# Naviguer vers le dossier
+cd www/station-coeur
+
+# Supprimer l'ancien contenu (attention !)
+rm -rf *
+
+# Depuis votre machine locale, utiliser rsync pour synchroniser
+rsync -avz --delete dist/ votrelogin@ssh.cluster0XX.hosting.ovh.net:www/station-coeur/
+```
+
+### Conseils
+
+- **Vider le cache** : Après déploiement, faites Ctrl+Shift+R dans le navigateur
+- **Sauvegarde** : Avant d'écraser, téléchargez une copie du dossier existant
+- **Droits des fichiers** : Les fichiers doivent avoir les droits `644`, les dossiers `755` (FileZilla le fait automatiquement)
+- **Fichier .htaccess** : Assurez-vous qu'il est bien transféré (fichiers cachés)
+
+### Dépannage
+
+| Problème | Solution |
+|----------|----------|
+| Page blanche | Vérifier que `index.html` existe dans `/station-coeur/` |
+| CSS/images absents | Vérifier que le dossier `_astro/` et `images/` sont bien transférés |
+| Erreur 404 | Vérifier le fichier `.htaccess` |
+| Changement de langue ne marche pas | Vérifier que le dossier `en/` existe avec son `index.html` |
+
+---
+
 ## Comparaison des plateformes
 
-| Fonctionnalité | Cloudflare Pages | Vercel | Netlify |
-|----------------|------------------|--------|---------|
-| Hébergement gratuit | Illimité | 100GB/mois | 100GB/mois |
-| Builds/mois | 500 | 6000 | 300 |
-| Preview deploys | Oui | Oui | Oui |
-| CDN global | Oui | Oui | Oui |
-| HTTPS | Automatique | Automatique | Automatique |
-| Analytics | Oui (gratuit) | Payant | Payant |
-| Functions | Workers (gratuit) | Serverless | Functions |
+| Fonctionnalité | OVH (FTP) | Cloudflare Pages | Vercel | Netlify |
+|----------------|-----------|------------------|--------|---------|
+| Type | Manuel | Automatisé | Automatisé | Automatisé |
+| Coût | Inclus hébergement | Gratuit | Gratuit | Gratuit |
+| Déploiement | FileZilla/rsync | Git push | Git push | Git push |
+| CDN global | Non | Oui | Oui | Oui |
+| HTTPS | Via OVH | Automatique | Automatique | Automatique |
+| Preview deploys | Non | Oui | Oui | Oui |
+| Intégration WordPress | Native | Non | Non | Non |
 
-**Recommandation** : Cloudflare Pages pour un projet associatif (gratuit, rapide, fiable).
+**Recommandation actuelle** : Déploiement manuel sur OVH pour rester sur l'infrastructure existante de l'association et intégrer facilement au site WordPress.
 
 ---
 
@@ -347,8 +478,10 @@ Les traductions sont dans `src/i18n/translations.ts`. Modifier les valeurs pour 
 ### Ajouter des images
 
 1. Placer les images dans `public/images/`
-2. Référencer avec `/images/nom-image.webp`
+2. Référencer avec `${base}/images/nom-image.webp` (où `base = import.meta.env.BASE_URL`)
 3. Format utilisé : WebP (meilleur pour le SEO et la performance)
+
+> **Note** : Le site utilise un préfixe `/station-coeur` pour tous les chemins. Utiliser toujours la variable `base` dans les composants Astro.
 
 ### Modifier les couleurs
 

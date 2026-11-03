@@ -3,6 +3,7 @@ import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Anchors must point back to the home page when rendered on secondary pages
 const homePath = getLocalizedPath('/', lang);
@@ -33,12 +34,12 @@ const externalLinks = [
           <picture class="block bg-cream rounded-[20px] px-4 py-3">
             <source
               type="image/webp"
-              srcset="/images/logo/logo-station-coeur-320.webp 320w, /images/logo/logo-station-coeur-640.webp 640w"
+              srcset={`${base}/images/logo/logo-station-coeur-320.webp 320w, ${base}/images/logo/logo-station-coeur-640.webp 640w`}
               sizes="180px"
             />
             <img
-              src="/images/logo/logo-station-coeur-320.png"
-              srcset="/images/logo/logo-station-coeur-320.png 320w, /images/logo/logo-station-coeur-640.png 640w"
+              src={`${base}/images/logo/logo-station-coeur-320.png`}
+              srcset={`${base}/images/logo/logo-station-coeur-320.png 320w, ${base}/images/logo/logo-station-coeur-640.png 640w`}
               sizes="180px"
               alt="Station-Cœur"
               width="320"
