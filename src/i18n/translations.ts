@@ -39,7 +39,7 @@ export const translations = {
       title: 'Un tiers-lieu solidaire au cœur de la gare',
       p1: "<strong>Station-Cœur</strong> est un projet innovant porté par l'association <strong>Nous Avons Des Elles</strong>. Implanté au sein d'une gare, ce tiers-lieu solidaire vise à créer un espace de vie, de partage et d'entraide accessible à tous.",
       p2: "Notre ambition est de transformer un lieu de passage en un véritable lieu de vie, où chacun peut trouver sa place, qu'il soit habitant du quartier, voyageur de passage, ou personne en recherche d'accompagnement.",
-      p3: "À travers une boutique ressourcerie, un café associatif, des ateliers de réparation et des actions dédiées au bien-vieillir, Station-Cœur œuvre pour le lien social, l'inclusion par l'emploi, l'économie circulaire et la transition écologique.",
+      p3: "À travers une boutique ressourcerie, une cantine végétale, des ateliers de réparation, une ludothèque et des actions dédiées au bien-vieillir, Station-Cœur œuvre pour le lien social, l'inclusion, l'économie circulaire et la transition écologique.",
       cta: 'Découvrir nos objectifs',
       association: "L'association",
     },
@@ -52,24 +52,24 @@ export const translations = {
         'Station-Cœur poursuit des objectifs ambitieux pour créer un impact positif durable sur le territoire et ses habitants.',
       items: [
         {
-          title: 'Créer du lien social',
+          title: 'Rompre l\'isolement',
           description:
-            'Favoriser les rencontres et les échanges entre les habitants du quartier, les voyageurs et les acteurs locaux.',
+            'Créer des occasions durables de se rencontrer et favoriser les échanges entre les habitants et les acteurs locaux.',
         },
         {
-          title: "Promouvoir l'économie circulaire",
+          title: "Faire durer les ressources",
           description:
-            'Encourager le réemploi, la réparation et le don d\'objets pour réduire les déchets et préserver les ressources.',
+            'Réparer, réemployer et consommer autrement pour réduire les déchets et préserver les ressources.',
         },
         {
-          title: 'Créer des emplois inclusifs',
+          title: 'Relier les générations',
           description:
-            "Recruter et employer directement des personnes éloignées de l'emploi, avec l'objectif de créer au moins 8 postes.",
+            "Partager du temps, des savoirs et de l'entraide entre seniors, familles et enfants.",
         },
         {
-          title: "Favoriser l'inclusion",
+          title: "Faire vivre le territoire",
           description:
-            'Accueillir tous les publics sans distinction et créer un espace accessible et bienveillant pour chacun.',
+            'Transformer une gare en lieu de vie ouvert et créer un espace où chacun peut recevoir et contribuer.',
         },
       ],
     },
@@ -115,21 +115,21 @@ export const translations = {
       ],
     },
 
-    // Inclusion par l'emploi
+    // Inclusion et pouvoir d'agir
     employment: {
-      subtitle: "Inclusion par l'emploi",
-      title: 'Créer des emplois pour celles et ceux qui en sont éloignés',
-      p1: "Station-Cœur est aussi un lieu qui crée de l'emploi. L'association recrute et emploie directement des personnes éloignées de l'emploi pour faire vivre le tiers-lieu au quotidien.",
-      p2: "L'éloignement de l'emploi peut avoir de multiples causes. À Station-Cœur, chacune et chacun peut trouver un poste à sa mesure, au sein d'une équipe bienveillante.",
-      factorsTitle: "L'éloignement de l'emploi peut être lié à :",
+      subtitle: "Inclusion et pouvoir d'agir",
+      title: 'Recréer des repères et valoriser les compétences',
+      p1: "Station-Cœur offre à chacun la possibilité de reprendre confiance. Accueillir, trier, réparer, organiser : les acquis sont reconnus et valorisés dans un cadre bienveillant.",
+      p2: "Le lieu facilite l'orientation vers les acteurs sociaux et de l'insertion pour les personnes qui le souhaitent. Une place active pour chacun : être accueilli, proposer une idée, transmettre un savoir-faire, puis contribuer à son rythme.",
+      factorsTitle: "Station-Cœur s'adresse notamment à :",
       factors: [
-        'Une situation de handicap',
-        'Des difficultés personnelles ou sociales',
-        "D'autres situations de vulnérabilité",
+        'Les personnes en situation de handicap',
+        'Les personnes rencontrant des difficultés personnelles ou sociales',
+        'Les personnes en situation de vulnérabilité',
       ],
-      goalValue: '8',
-      goalLabel: 'postes au minimum',
-      goalDescription: "C'est notre objectif de création d'emplois au sein de Station-Cœur.",
+      goalValue: '+',
+      goalLabel: 'de pouvoir d\'agir',
+      goalDescription: "Chacun peut recevoir, contribuer et reprendre confiance.",
     },
 
     // Activities
@@ -140,40 +140,40 @@ export const translations = {
         'Découvrez les différentes activités proposées à Station-Cœur, un espace polyvalent où chacun trouve sa place.',
       items: [
         {
-          title: 'Ressourcerie solidaire',
+          title: 'Boutique ressourcerie',
           description:
-            'Collecte, tri et revente d\'objets de seconde main à prix solidaires. Donnez une seconde vie à vos objets !',
+            'Une boutique accessible et tendance qui donne une seconde vie aux vêtements et objets, encourage une consommation plus responsable.',
           tags: ['Réemploi', 'Solidarité'],
         },
         {
           title: 'Ateliers de réparation',
           description:
-            'Apprenez à réparer vos objets du quotidien grâce à nos ateliers participatifs animés par des bénévoles experts.',
-          tags: ['Formation', 'Écologie'],
+            'Des ateliers pratiques pour apprendre à réparer, transformer et réemployer, développer les savoir-faire et réduire durablement les déchets.',
+          tags: ['Savoir-faire', 'Écologie'],
         },
         {
-          title: 'Café associatif',
+          title: 'Café-cantine végétale',
           description:
-            'Un espace convivial pour se retrouver, échanger et partager un moment autour d\'une boisson chaude ou fraîche.',
-          tags: ['Convivialité', 'Rencontres'],
+            'Une offre de restauration saine, végétale et accessible, sur place ou à emporter de 7h à 20h, pour les voyageurs et habitants.',
+          tags: ['Alimentation', 'Convivialité'],
         },
         {
-          title: 'Accompagnement social',
+          title: 'Ludothèque intergénérationnelle',
           description:
-            'Des permanences pour vous aider dans vos démarches administratives et vous orienter vers les services adaptés.',
-          tags: ['Accompagnement', 'Entraide'],
+            'Un espace ouvert à toutes les générations où le jeu devient un support de rencontres, de transmission et de lutte contre l\'isolement.',
+          tags: ['Jeux', 'Lien social'],
         },
         {
           title: 'Événements culturels',
           description:
-            'Expositions, concerts, spectacles... Station-Cœur s\'anime tout au long de l\'année avec une programmation variée.',
+            'Expositions, concerts, ateliers, rencontres et événements intergénérationnels pour rendre la culture accessible et créer du lien.',
           tags: ['Culture', 'Animation'],
         },
         {
-          title: 'Espace de coworking',
+          title: 'Bibliothèque d\'objets',
           description:
-            'Un lieu de travail partagé pour les entrepreneurs, freelances et télétravailleurs du quartier.',
-          tags: ['Travail', 'Collaboration'],
+            'Un service de prêt et de location d\'objets, d\'outils, de jeux et de livres qui facilite l\'accès aux équipements et favorise l\'économie circulaire.',
+          tags: ['Partage', 'Économie circulaire'],
         },
       ],
     },
@@ -183,34 +183,34 @@ export const translations = {
       subtitle: 'Pour qui ?',
       title: 'Un lieu ouvert à tous',
       description:
-        "Station-Cœur accueille tous les publics dans un esprit d'inclusion et de bienveillance.",
+        "La mixité des générations et des parcours favorise la réciprocité. Station-Cœur accueille chacun dans un esprit d'inclusion et de bienveillance.",
       items: [
         {
-          title: 'Habitants du quartier',
-          description: 'Un lieu de proximité pour tous les riverains, accessible et accueillant.',
+          title: 'Seniors isolés',
+          description: 'Retrouver des rendez-vous, entretenir ses capacités et transmettre son expérience.',
         },
         {
-          title: 'Voyageurs',
+          title: 'Proches aidants',
           description:
-            "Un point d'accueil en gare pour tous ceux qui passent et souhaitent faire une pause.",
+            "Être écoutés, rencontrer des pairs et accéder aux ressources adaptées.",
         },
         {
-          title: "Personnes éloignées de l'emploi",
-          description: 'Des postes créés au sein du lieu pour retrouver une activité professionnelle.',
+          title: 'Femmes et familles fragilisées',
+          description: 'Retrouver du soutien, une place dans le collectif et des occasions d\'agir.',
         },
         {
-          title: 'Associations locales',
-          description: 'Un espace de collaboration et de mutualisation des ressources.',
+          title: 'Personnes en situation de handicap',
+          description: 'Participer à un lieu ouvert, avec des usages et un accueil attentifs aux besoins.',
         },
       ],
     },
 
     // Ecological
     ecological: {
-      subtitle: 'Notre engagement',
-      title: 'Une démarche écologique et solidaire',
-      p1: "Au cœur de notre projet, l'économie circulaire et la transition écologique sont des valeurs fondamentales. Nous croyons qu'il est possible de concilier solidarité et respect de l'environnement.",
-      p2: "À travers notre ressourcerie, nos ateliers de réparation et nos actions de sensibilisation, nous encourageons le réemploi, la réduction des déchets et une consommation plus responsable.",
+      subtitle: 'Transition écologique',
+      title: 'Une démarche écologique au quotidien',
+      p1: "Station-Cœur intègre la transition écologique dans chacune de ses activités : alimentation végétale, seconde main, réparation, partage d'objets et végétalisation participative.",
+      p2: "À travers notre cantine végétale, notre ressourcerie, nos ateliers de réparation et notre bibliothèque d'objets, nous encourageons des pratiques plus durables et solidaires.",
     },
 
     // Testimonials
@@ -365,7 +365,7 @@ export const translations = {
       title: 'A solidarity hub in the heart of the station',
       p1: '<strong>Station-Cœur</strong> is an innovative project led by the association <strong>Nous Avons Des Elles</strong>. Located within a train station, this solidarity hub aims to create a living space for sharing and mutual aid, accessible to all.',
       p2: 'Our ambition is to transform a transit space into a true living place, where everyone can find their place, whether they are neighborhood residents, passing travelers, or people seeking support.',
-      p3: 'Through a thrift store, an associative café, repair workshops, and actions dedicated to healthy ageing, Station-Cœur works for social bonds, inclusion through employment, circular economy, and ecological transition.',
+      p3: 'Through a thrift store, a plant-based canteen, repair workshops, a games library, and actions dedicated to healthy ageing, Station-Cœur works for social bonds, inclusion, circular economy, and ecological transition.',
       cta: 'Discover our objectives',
       association: 'The association',
     },
@@ -378,24 +378,24 @@ export const translations = {
         'Station-Cœur pursues ambitious objectives to create a lasting positive impact on the territory and its inhabitants.',
       items: [
         {
-          title: 'Create social bonds',
+          title: 'Break isolation',
           description:
-            'Foster meetings and exchanges between neighborhood residents, travelers, and local actors.',
+            'Create lasting opportunities to meet and foster exchanges between residents and local actors.',
         },
         {
-          title: 'Promote circular economy',
+          title: 'Make resources last',
           description:
-            'Encourage reuse, repair, and donation of objects to reduce waste and preserve resources.',
+            'Repair, reuse, and consume differently to reduce waste and preserve resources.',
         },
         {
-          title: 'Create inclusive jobs',
+          title: 'Connect generations',
           description:
-            'Directly recruit and employ people who are far from the job market, with the goal of creating at least 8 positions.',
+            'Share time, knowledge, and mutual aid between seniors, families, and children.',
         },
         {
-          title: 'Foster inclusion',
+          title: 'Bring the territory to life',
           description:
-            'Welcome all audiences without distinction and create an accessible and caring space for everyone.',
+            'Transform a station into an open living space where everyone can receive and contribute.',
         },
       ],
     },
@@ -441,21 +441,21 @@ export const translations = {
       ],
     },
 
-    // Inclusion through employment
+    // Inclusion and empowerment
     employment: {
-      subtitle: 'Inclusion through employment',
-      title: 'Creating jobs for people far from employment',
-      p1: 'Station-Cœur is also a place that creates jobs. The association directly recruits and employs people who are far from the job market to keep the hub running day to day.',
-      p2: 'Distance from employment can have many causes. At Station-Cœur, everyone can find a position suited to them, within a caring team.',
-      factorsTitle: 'Distance from employment may be linked to:',
+      subtitle: 'Inclusion and empowerment',
+      title: 'Rebuilding confidence and valuing skills',
+      p1: 'Station-Cœur offers everyone the opportunity to regain confidence. Welcoming, sorting, repairing, organising: skills are recognised and valued in a caring environment.',
+      p2: 'The place facilitates referrals to social and employment services for those who wish. An active role for everyone: being welcomed, suggesting an idea, passing on a skill, then contributing at their own pace.',
+      factorsTitle: 'Station-Cœur particularly welcomes:',
       factors: [
-        'A disability',
-        'Personal or social difficulties',
-        'Other situations of vulnerability',
+        'People with disabilities',
+        'People facing personal or social difficulties',
+        'People in vulnerable situations',
       ],
-      goalValue: '8',
-      goalLabel: 'positions minimum',
-      goalDescription: 'This is our job-creation goal within Station-Cœur.',
+      goalValue: '+',
+      goalLabel: 'empowerment',
+      goalDescription: 'Everyone can receive, contribute, and regain confidence.',
     },
 
     // Activities
@@ -468,38 +468,38 @@ export const translations = {
         {
           title: 'Solidarity thrift store',
           description:
-            'Collection, sorting, and resale of second-hand items at solidarity prices. Give your objects a second life!',
+            'An accessible and trendy shop that gives a second life to clothes and objects, encouraging more responsible consumption.',
           tags: ['Reuse', 'Solidarity'],
         },
         {
           title: 'Repair workshops',
           description:
-            'Learn to repair your everyday objects through our participatory workshops led by expert volunteers.',
-          tags: ['Training', 'Ecology'],
+            'Practical workshops to learn how to repair, transform, and reuse items, develop skills, and sustainably reduce waste.',
+          tags: ['Know-how', 'Ecology'],
         },
         {
-          title: 'Associative café',
+          title: 'Plant-based café-canteen',
           description:
-            'A friendly space to meet, exchange, and share a moment over a hot or cold drink.',
-          tags: ['Friendliness', 'Meetings'],
+            'A healthy, plant-based, and accessible food offer, on-site or take-away from 7am to 8pm, for travellers and residents.',
+          tags: ['Food', 'Conviviality'],
         },
         {
-          title: 'Social support',
+          title: 'Intergenerational games library',
           description:
-            'Drop-in sessions to help you with your administrative procedures and guide you to appropriate services.',
-          tags: ['Support', 'Mutual aid'],
+            'A space open to all generations where games become a vehicle for encounters, sharing, and combating isolation.',
+          tags: ['Games', 'Social bonds'],
         },
         {
           title: 'Cultural events',
           description:
-            'Exhibitions, concerts, shows... Station-Cœur comes alive throughout the year with a varied program.',
+            'Exhibitions, concerts, workshops, gatherings, and intergenerational events to make culture accessible and create bonds.',
           tags: ['Culture', 'Animation'],
         },
         {
-          title: 'Coworking space',
+          title: 'Library of objects',
           description:
-            'A shared workspace for entrepreneurs, freelancers, and remote workers in the neighborhood.',
-          tags: ['Work', 'Collaboration'],
+            'A lending and rental service for objects, tools, games, and books that facilitates access to equipment and promotes circular economy.',
+          tags: ['Sharing', 'Circular economy'],
         },
       ],
     },
@@ -509,34 +509,34 @@ export const translations = {
       subtitle: 'For whom?',
       title: 'A place open to all',
       description:
-        'Station-Cœur welcomes all audiences in a spirit of inclusion and benevolence.',
+        'The mix of generations and backgrounds fosters reciprocity. Station-Cœur welcomes everyone in a spirit of inclusion and benevolence.',
       items: [
         {
-          title: 'Neighborhood residents',
-          description: 'A local place for all residents, accessible and welcoming.',
+          title: 'Isolated seniors',
+          description: 'Finding regular activities, maintaining abilities, and passing on experience.',
         },
         {
-          title: 'Travelers',
+          title: 'Family caregivers',
           description:
-            'A welcome point at the station for all those passing through who wish to take a break.',
+            'Being heard, meeting peers, and accessing appropriate resources.',
         },
         {
-          title: 'People far from employment',
-          description: 'Jobs created within the hub to return to professional activity.',
+          title: 'Women and vulnerable families',
+          description: 'Finding support, a place in the community, and opportunities to take action.',
         },
         {
-          title: 'Local associations',
-          description: 'A space for collaboration and pooling of resources.',
+          title: 'People with disabilities',
+          description: 'Participating in an open place, with uses and reception attentive to needs.',
         },
       ],
     },
 
     // Ecological
     ecological: {
-      subtitle: 'Our commitment',
-      title: 'An ecological and solidarity approach',
-      p1: 'At the heart of our project, circular economy and ecological transition are fundamental values. We believe it is possible to reconcile solidarity and respect for the environment.',
-      p2: 'Through our thrift store, repair workshops, and awareness actions, we encourage reuse, waste reduction, and more responsible consumption.',
+      subtitle: 'Ecological transition',
+      title: 'An ecological approach in everyday life',
+      p1: 'Station-Cœur integrates ecological transition into each of its activities: plant-based food, second-hand goods, repair, object sharing, and participatory greening.',
+      p2: 'Through our plant-based canteen, thrift store, repair workshops, and library of objects, we encourage more sustainable and supportive practices.',
     },
 
     // Testimonials
