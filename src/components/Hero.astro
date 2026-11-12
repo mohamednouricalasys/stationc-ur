@@ -42,7 +42,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up animate-delay-300">
-          <a href="#presentation" class="btn-primary group">
+          <a href="#chantier" class="btn-primary group">
             {t.hero.primaryCta}
             <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -57,8 +57,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <!-- Visual -->
       <div class="relative animate-fade-in-up animate-delay-200">
         <div class="hero-media relative">
-          <!-- Main image container -->
-          <div class="relative rounded-[20px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.35)]">
+          <!-- Illustration / photo comparison, split by a draggable handle -->
+          <div class="compare relative rounded-[20px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.35)]" style="--split: 0.5" data-compare>
             <img
               src={`${base}/images/hero/gare-station-coeur-1024.webp`}
               srcset={`${base}/images/hero/gare-station-coeur-640.webp 640w, ${base}/images/hero/gare-station-coeur-1024.webp 1024w, ${base}/images/hero/gare-station-coeur-1600.webp 1600w`}
@@ -66,12 +66,45 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               width="1600"
               height="906"
               alt={lang === 'fr' ? "La gare qui accueille Station-Cœur" : "The station that hosts Station-Cœur"}
-              class="w-full aspect-[16/9] object-cover"
+              class="block w-full aspect-[16/9] object-cover"
               fetchpriority="high"
               decoding="async"
+              draggable="false"
             />
             <!-- Overlay gradient -->
             <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent"></div>
+
+            <!-- Illustration, revealed from the left up to the split -->
+            <div class="compare-sketch absolute inset-0">
+              <img
+                src={`${base}/images/hero/gare-station-coeur-illustration.svg`}
+                width="1568"
+                height="1202"
+                alt={t.hero.compare.sketchAlt}
+                class="compare-sketch-img"
+                decoding="async"
+                draggable="false"
+              />
+            </div>
+
+            <div class="compare-divider">
+              <div
+                class="compare-handle"
+                role="slider"
+                tabindex="0"
+                aria-label={t.hero.compare.slider}
+                aria-orientation="horizontal"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="50"
+                aria-valuetext="50 %"
+                data-compare-handle
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9.5 7.5 5 12l4.5 4.5M14.5 7.5 19 12l-4.5 4.5"></path>
+                </svg>
+              </div>
+            </div>
           </div>
 
           <!-- Floating cards -->
@@ -79,13 +112,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="bg-white rounded-2xl p-4 shadow-xl shadow-secondary-900/10 animate-float">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-accent-100 rounded-xl flex items-center justify-center">
-                  <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <span class="block text-sm font-semibold text-secondary-900">{t.misc.solidarity}</span>
-                  <span class="text-xs text-secondary-500">{t.misc.localHelp}</span>
+                  <span class="block text-sm font-semibold text-secondary-900">{t.misc.nextStop}</span>
+                  <span class="text-xs text-secondary-500">{t.misc.station}</span>
                 </div>
               </div>
             </div>
@@ -95,13 +129,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="bg-white rounded-2xl p-4 shadow-xl shadow-secondary-900/10 animate-float animate-delay-300">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
-                  <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                  <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <span class="block text-sm font-semibold text-secondary-900">{t.misc.inclusion}</span>
-                  <span class="text-xs text-secondary-500">{t.misc.forAll}</span>
+                  <span class="block text-sm font-semibold text-secondary-900">{t.misc.solidarity}</span>
+                  <span class="text-xs text-secondary-500">{t.misc.localHelp}</span>
                 </div>
               </div>
             </div>
@@ -113,7 +147,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- Scroll indicator -->
   <div class="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <a href="#presentation" class="flex flex-col items-center gap-2 text-secondary-400 hover:text-primary-500 transition-colors">
+    <a href="#chantier" class="flex flex-col items-center gap-2 text-secondary-400 hover:text-primary-500 transition-colors">
       <span class="text-xs font-medium">{t.hero.scrollLabel}</span>
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -151,6 +185,134 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
   }
 
+  /* ---------- Illustration / photo comparison ---------- */
+  .compare {
+    /* 0…1, position of the splitter from the left (driven by the script below) */
+    --split: 0.5;
+    isolation: isolate;
+    cursor: ew-resize;
+    touch-action: pan-y; /* vertical scroll stays native, horizontal drags move the split */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .compare img {
+    -webkit-user-drag: none;
+  }
+
+  /* Drafting-paper backdrop for the drawing */
+  .compare-sketch {
+    clip-path: inset(0 calc((1 - var(--split)) * 100%) 0 0);
+    background-color: #f9f3e4;
+    background-image:
+      linear-gradient(rgba(61, 43, 31, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61, 43, 31, 0.045) 1px, transparent 1px),
+      radial-gradient(120% 95% at 50% 42%, #fffdf7 0%, #f9f3e4 62%, #efe3ca 100%);
+    background-size: 28px 28px, 28px 28px, 100% 100%;
+    background-position: center;
+  }
+
+  .compare-sketch-img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: auto;
+    height: 86%;
+    max-width: 92%;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 16px rgba(54, 31, 16, 0.14));
+  }
+
+  /* Divider line + handle */
+  .compare-divider {
+    position: absolute;
+    z-index: 2;
+    inset-block: 0;
+    left: calc(var(--split) * 100%);
+    width: 0;
+  }
+
+  .compare-divider::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    left: -1px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 0.5px rgba(54, 31, 16, 0.12), 0 0 14px rgba(54, 31, 16, 0.3);
+  }
+
+  .compare-handle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    translate: -50% -50%;
+    border-radius: 9999px;
+    color: #3c6650;
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(10px) saturate(1.4);
+    backdrop-filter: blur(10px) saturate(1.4);
+    box-shadow:
+      0 10px 30px -8px rgba(54, 31, 16, 0.45),
+      0 0 0 1px rgba(54, 31, 16, 0.08);
+    outline: none;
+    transition: scale 0.35s cubic-bezier(0.2, 1.4, 0.4, 1), box-shadow 0.25s ease;
+  }
+
+  .compare-handle svg {
+    width: 1.375rem;
+    height: 1.375rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Soft pulse inviting a first drag; stops once the visitor interacts */
+  .compare-handle::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    pointer-events: none;
+    animation: compare-pulse 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) 1.5s infinite both;
+  }
+
+  .compare.is-touched .compare-handle::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  @media (hover: hover) {
+    .compare:hover .compare-handle {
+      scale: 1.07;
+    }
+  }
+
+  .compare.is-dragging .compare-handle {
+    scale: 0.94;
+  }
+
+  .compare-handle:focus-visible {
+    box-shadow:
+      0 10px 30px -8px rgba(54, 31, 16, 0.45),
+      0 0 0 3px #fff,
+      0 0 0 5px #4a7c5f;
+  }
+
+  @keyframes compare-pulse {
+    0% { scale: 1; opacity: 0; }
+    15% { opacity: 0.9; }
+    80%, 100% { scale: 1.75; opacity: 0; }
+  }
+
   /* Short landscape viewports: hide the scroll hint rather than collide with content */
   @media (max-height: 700px) and (min-width: 1024px) {
     .hero-scroll {
@@ -158,3 +320,174 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
   }
 </style>
+
+<script>
+  const MIN = 0.04;
+  const MAX = 0.96;
+  const clamp = (v: number) => Math.min(MAX, Math.max(MIN, v));
+  const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLElement>('[data-compare]').forEach((root) => {
+    const handle = root.querySelector<HTMLElement>('[data-compare-handle]');
+    if (!handle) return;
+
+    let current = 0.5;
+    let target = 0.5;
+    let frame = 0;
+    let introFrame = 0;
+    let dragging = false;
+    let lastPct = 50;
+
+    const render = (value: number) => {
+      current = value;
+      root.style.setProperty('--split', value.toFixed(4));
+      const pct = Math.round(value * 100);
+      if (pct !== lastPct) {
+        lastPct = pct;
+        handle.setAttribute('aria-valuenow', String(pct));
+        handle.setAttribute('aria-valuetext', `${pct} %`);
+      }
+    };
+
+    // Ease toward the target: snappy while dragging, softer for clicks and keys
+    const step = () => {
+      const next = current + (target - current) * (dragging ? 0.45 : 0.18);
+      if (Math.abs(target - next) < 0.0005) {
+        render(target);
+        frame = 0;
+        return;
+      }
+      render(next);
+      frame = requestAnimationFrame(step);
+    };
+
+    const moveTo = (value: number) => {
+      target = clamp(value);
+      if (reduceMotion) {
+        render(target);
+        return;
+      }
+      if (!frame) frame = requestAnimationFrame(step);
+    };
+
+    const stopIntro = () => {
+      cancelAnimationFrame(introFrame);
+      introFrame = 0;
+    };
+
+    const markTouched = () => {
+      root.classList.add('is-touched');
+      stopIntro();
+    };
+
+    // One gentle back-and-forth to show the split is interactive
+    const playIntro = () => {
+      const keys = [0.5, 0.68, 0.34, 0.5];
+      const durations = [850, 1150, 850];
+      let segment = 0;
+      let segmentStart = performance.now();
+
+      const tick = (now: number) => {
+        let t = (now - segmentStart) / durations[segment];
+        if (t >= 1) {
+          segment += 1;
+          segmentStart = now;
+          t = 0;
+          if (segment >= durations.length) {
+            target = keys[keys.length - 1];
+            render(target);
+            introFrame = 0;
+            return;
+          }
+        }
+        target = keys[segment] + (keys[segment + 1] - keys[segment]) * easeInOut(t);
+        render(target);
+        introFrame = requestAnimationFrame(tick);
+      };
+
+      introFrame = requestAnimationFrame(tick);
+    };
+
+    const valueAt = (event: PointerEvent) => {
+      const rect = root.getBoundingClientRect();
+      return (event.clientX - rect.left) / rect.width;
+    };
+
+    // Mouse: press anywhere to jump there, then drag. Touch / pen: drag
+    // horizontally or tap to jump; vertical swipes stay with the page scroll.
+    let pointerId: number | null = null;
+    let startX = 0;
+    let moved = false;
+
+    root.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      markTouched();
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      moved = false;
+      root.setPointerCapture(event.pointerId);
+      if (event.pointerType === 'mouse') {
+        dragging = true;
+        root.classList.add('is-dragging');
+        moveTo(valueAt(event));
+      }
+    });
+
+    root.addEventListener('pointermove', (event) => {
+      if (event.pointerId !== pointerId) return;
+      if (!dragging && Math.abs(event.clientX - startX) > 4) {
+        dragging = true;
+        moved = true;
+        root.classList.add('is-dragging');
+      }
+      if (dragging) moveTo(valueAt(event));
+    });
+
+    const release = (event: PointerEvent) => {
+      if (event.pointerId !== pointerId) return;
+      if (event.type === 'pointerup' && event.pointerType !== 'mouse' && !moved) {
+        moveTo(valueAt(event));
+      }
+      pointerId = null;
+      dragging = false;
+      root.classList.remove('is-dragging');
+    };
+
+    root.addEventListener('pointerup', release);
+    root.addEventListener('pointercancel', release);
+
+    handle.addEventListener('keydown', (event) => {
+      const small = event.shiftKey ? 0.1 : 0.02;
+      const moves: Record<string, number> = {
+        ArrowLeft: target - small,
+        ArrowDown: target - small,
+        ArrowRight: target + small,
+        ArrowUp: target + small,
+        PageDown: target - 0.1,
+        PageUp: target + 0.1,
+        Home: MIN,
+        End: MAX,
+      };
+      if (!(event.key in moves)) return;
+      event.preventDefault();
+      markTouched();
+      moveTo(moves[event.key]);
+    });
+
+    // Play the hint once the comparison is properly in view
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          observer.disconnect();
+          window.setTimeout(() => {
+            if (!root.classList.contains('is-touched')) playIntro();
+          }, 900);
+        },
+        { threshold: 0.6 },
+      );
+      observer.observe(root);
+    }
+  });
+</script>

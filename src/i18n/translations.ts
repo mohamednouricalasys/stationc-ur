@@ -11,43 +11,98 @@ export const translations = {
   fr: {
     // Navigation
     nav: {
-      project: 'Le Projet',
-      objectives: 'Objectifs',
-      activities: 'Activités',
+      project: 'Le chantier',
+      objectives: 'Notre cap',
+      activities: 'Le lieu',
       publics: 'Publics',
       partners: 'Partenaires',
       contact: 'Contact',
-      joinAdventure: "Rejoindre l'aventure",
+      support: 'Soutenir le projet',
       backToAssociation: 'Retour au site Nous Avons Des Elles',
     },
 
     // Hero
     hero: {
-      title: 'Station-Cœur',
-      titleLine1: 'Un tiers-lieu solidaire',
-      titleLine2: 'au cœur de la gare',
+      title: 'Station-Cœur · Gare de Bougival',
+      titleLine1: 'Rien ne se perd,',
+      titleLine2: 'tout se transforme en espoir.',
       description:
-        "Porté par l'association Nous Avons Des Elles, Station-Cœur est un espace de rencontre, de partage et d'entraide ouvert à tous. Venez découvrir un lieu unique où solidarité et convivialité sont au rendez-vous.",
-      primaryCta: 'Découvrir le projet',
-      secondaryCta: 'Nous contacter',
-      scrollLabel: 'Découvrir',
+        "Prochain arrêt : un lieu où l'on se retrouve. Porté par l'association Nous Avons Des Elles, Station-Cœur s'installe en gare de Bougival, et les travaux ont commencé.",
+      primaryCta: 'Monter à bord',
+      secondaryCta: 'Soutenir le projet',
+      scrollLabel: 'Prochain arrêt',
+      compare: {
+        sketchAlt: 'Illustration dessinée de la gare de Bougival',
+        slider: "Comparer l'illustration et la photo",
+      },
     },
 
-    // Presentation
+    // Le chantier (presentation)
     presentation: {
-      subtitle: 'À propos',
-      title: 'Un tiers-lieu solidaire au cœur de la gare',
-      p1: "<strong>Station-Cœur</strong> est un projet innovant porté par l'association <strong>Nous Avons Des Elles</strong>. Implanté au sein d'une gare, ce tiers-lieu solidaire vise à créer un espace de vie, de partage et d'entraide accessible à tous.",
-      p2: "Notre ambition est de transformer un lieu de passage en un véritable lieu de vie, où chacun peut trouver sa place, qu'il soit habitant du quartier, voyageur de passage, ou personne en recherche d'accompagnement.",
-      p3: "À travers une boutique ressourcerie, une cantine végétale, des ateliers de réparation, une ludothèque et des actions dédiées au bien-vieillir, Station-Cœur œuvre pour le lien social, l'inclusion, l'économie circulaire et la transition écologique.",
-      cta: 'Découvrir nos objectifs',
+      subtitle: 'Le chantier',
+      title: 'Que se passe-t-il en gare de Bougival ?',
+      p1: "Un nouveau lieu y prend forme. <strong>Station-Cœur</strong> s'installe dans la gare, dans le cadre de l'appel à projets « Gares de demain », et les travaux ont commencé.",
+      p2: "Porté par l'association <strong>Nous Avons Des Elles</strong>, ce tiers-lieu solidaire réunira une boutique ressourcerie, une cantine végétale, des ateliers de réparation, une ludothèque, une bibliothèque d'objets et des actions dédiées au bien-vieillir.",
+      ticket: [
+        { label: 'Destination', value: 'Gare de Bougival' },
+        { label: 'Ligne', value: 'Transilien L, depuis Paris Saint-Lazare' },
+        { label: 'Ouverture prévue', value: 'Date à confirmer' },
+      ],
+      photos: [
+        { alt: 'La gare de Bougival côté parvis', caption: 'Côté parvis' },
+        { alt: 'Le bâtiment voyageurs de la gare de Bougival côté quais', caption: 'Côté quais' },
+        { alt: "La gare de Bougival vue d'en haut, avec un train à quai", caption: "Vue d'en haut" },
+      ],
+      cta: 'Découvrir notre cap',
       association: "L'association",
     },
 
-    // Objectives
+    // Chiffres clés
+    stakes: {
+      subtitle: 'Pourquoi Station-Cœur ?',
+      title: 'Personne ne devrait rester sur le quai',
+      items: [
+        {
+          value: '1 sur 4',
+          label: 'des enfants mineurs vivent dans une famille monoparentale en France.',
+        },
+        {
+          value: '2 millions',
+          label: 'de personnes âgées sont isolées de leur entourage proche, notamment de leur famille et de leurs amis.',
+        },
+        {
+          value: '750 000',
+          label: "personnes âgées sont en situation de « mort sociale », c'est-à-dire privées de liens réguliers avec leur entourage et les réseaux de sociabilité.",
+        },
+      ],
+      sources:
+        'Sources : Insee, « En 2023, trois enfants sur dix vivent avec un seul de leurs parents », janvier 2025 ; Petits Frères des Pauvres, « Baromètre solitude et isolement des personnes âgées en France », septembre 2025.',
+    },
+
+    // Notre cap (objectives)
     objectives: {
-      subtitle: 'Nos objectifs',
-      title: 'Ce qui nous anime',
+      subtitle: 'Notre cap',
+      title: 'Faire de la gare un lieu de vie',
+      lead: "Créer un lieu vivant où le réemploi des objets devient un levier de protection de la planète, d'émancipation des femmes et de reconstruction du lien social.",
+      body: "Une gare, c'est un lieu où l'on passe. Station-Cœur veut en faire un lieu où l'on s'arrête : un espace de vie, d'échanges et de solutions pour les voyageurs et les riverains, où chacun trouve sa place.",
+      linesTitle: 'Trois lignes, une même direction',
+      lines: [
+        {
+          title: 'Sociale et intergénérationnelle',
+          description: 'Recréer des espaces de lien pour les familles, les seniors et les jeunes.',
+        },
+        {
+          title: 'Écologique et citoyenne',
+          description:
+            "Une ressourcerie solidaire, des ateliers d'upcycling, un jardin collectif et des activités de bien-être accessibles à tous.",
+        },
+        {
+          title: 'Culturelle et conviviale',
+          description:
+            'Une gare transformée en agora moderne, avec un café éco-responsable, des animations fédératrices et des événements artistiques et culturels.',
+        },
+      ],
+      goalsTitle: 'Ce qui nous anime',
       description:
         'Station-Cœur poursuit des objectifs ambitieux pour créer un impact positif durable sur le territoire et ses habitants.',
       items: [
@@ -133,47 +188,56 @@ export const translations = {
     },
 
     // Activities
+    // Le lieu (activities)
     activities: {
-      subtitle: 'Nos activités',
-      title: 'Un lieu vivant et animé',
+      subtitle: 'Le lieu',
+      title: 'Tout le monde descend ici',
       description:
-        'Découvrez les différentes activités proposées à Station-Cœur, un espace polyvalent où chacun trouve sa place.',
+        'Un espace polyvalent où chacun trouve sa place. Ces espaces sont des projets en construction : ils peuvent évoluer au fil des travaux.',
+      platform: 'Voie',
       items: [
-        {
-          title: 'Boutique ressourcerie',
-          description:
-            'Une boutique accessible et tendance qui donne une seconde vie aux vêtements et objets, encourage une consommation plus responsable.',
-          tags: ['Réemploi', 'Solidarité'],
-        },
-        {
-          title: 'Ateliers de réparation',
-          description:
-            'Des ateliers pratiques pour apprendre à réparer, transformer et réemployer, développer les savoir-faire et réduire durablement les déchets.',
-          tags: ['Savoir-faire', 'Écologie'],
-        },
         {
           title: 'Café-cantine végétale',
           description:
-            'Une offre de restauration saine, végétale et accessible, sur place ou à emporter de 7h à 20h, pour les voyageurs et habitants.',
+            "Un café où l'on viendra autant pour se nourrir que pour se retrouver : des recettes végétales, locales et équilibrées, pensées pour prendre soin du corps et du mental. Avec une cuisine professionnelle, de la vente à emporter de 7h00 à 20h00 pour les voyageurs, et un espace café et wifi pour se poser ou télétravailler.",
           tags: ['Alimentation', 'Convivialité'],
+        },
+        {
+          title: 'Boutique ressourcerie éco-responsable',
+          description:
+            'Chaque objet y racontera une seconde histoire. Une boutique accessible et tendance, et une invitation à consommer moins, mais mieux : choisir, réparer, transmettre.',
+          tags: ['Réemploi', 'Solidarité'],
+        },
+        {
+          title: "Ateliers de réparation et d'upcycling",
+          description:
+            'Réparer, détourner, transformer : les mains reprendront le pouvoir, la matière reprendra vie, et chacun redécouvrira le plaisir de faire durer.',
+          tags: ['Savoir-faire', 'Écologie'],
+        },
+        {
+          title: "Bibliothèque d'objets et de livres",
+          description:
+            "Pourquoi posséder ce que l'on peut partager ? Outils, jeux, livres et appareils du quotidien seront à emprunter, pour désencombrer les vies et alléger la planète.",
+          tags: ['Partage', 'Économie circulaire'],
         },
         {
           title: 'Ludothèque intergénérationnelle',
           description:
-            'Un espace ouvert à toutes les générations où le jeu devient un support de rencontres, de transmission et de lutte contre l\'isolement.',
+            "Les enfants et les anciens se retrouveront autour de jeux, pour tisser du lien à travers le rire, la stratégie et l'imagination, et rompre l'isolement.",
           tags: ['Jeux', 'Lien social'],
+        },
+        {
+          title: 'Service courrier et colis',
+          caption: 'Station-Cœur – La Poste',
+          description:
+            "Il n'y a plus de bureau de poste à Bougival et le quartier de la gare manque de services postaux. Un point courrier sera mis à disposition des voyageurs et des habitants.",
+          tags: ['Proximité', 'Services'],
         },
         {
           title: 'Événements culturels',
           description:
             'Expositions, concerts, ateliers, rencontres et événements intergénérationnels pour rendre la culture accessible et créer du lien.',
           tags: ['Culture', 'Animation'],
-        },
-        {
-          title: 'Bibliothèque d\'objets',
-          description:
-            'Un service de prêt et de location d\'objets, d\'outils, de jeux et de livres qui facilite l\'accès aux équipements et favorise l\'économie circulaire.',
-          tags: ['Partage', 'Économie circulaire'],
         },
       ],
     },
@@ -278,9 +342,9 @@ export const translations = {
 
     // CTA
     cta: {
-      title: "Rejoignez l'aventure Station-Cœur",
+      title: 'Envie de monter à bord ?',
       description:
-        'Que vous souhaitiez devenir bénévole, partenaire ou simplement nous rendre visite, nous serons ravis de vous accueillir !',
+        'Que vous souhaitiez devenir bénévole, partenaire, soutenir le chantier ou simplement nous rendre visite : il reste de la place à bord !',
       primary: 'Nous contacter',
       secondary: "Découvrir l'association",
     },
@@ -306,7 +370,7 @@ export const translations = {
     // Footer
     footer: {
       description:
-        "Un tiers-lieu solidaire au cœur de la gare, porté par l'association Nous Avons Des Elles. Ensemble, créons un espace de partage, d'entraide et d'inclusion.",
+        "Un tiers-lieu solidaire en gare de Bougival, porté par l'association Nous Avons Des Elles. Ensemble, créons un espace de partage, d'entraide et d'inclusion.",
       navigation: 'Navigation',
       association: "L'Association",
       legal: 'Mentions légales',
@@ -328,8 +392,8 @@ export const translations = {
     misc: {
       solidarity: 'Solidarité',
       localHelp: 'Entraide locale',
-      inclusion: 'Inclusion',
-      forAll: 'Pour tous',
+      nextStop: 'Prochain arrêt',
+      station: 'Gare de Bougival',
       projectImage: 'Image du projet',
     },
   },
@@ -337,43 +401,98 @@ export const translations = {
   en: {
     // Navigation
     nav: {
-      project: 'The Project',
-      objectives: 'Objectives',
-      activities: 'Activities',
+      project: 'The worksite',
+      objectives: 'Our course',
+      activities: 'The place',
       publics: 'Audiences',
       partners: 'Partners',
       contact: 'Contact',
-      joinAdventure: 'Join the adventure',
+      support: 'Support the project',
       backToAssociation: 'Back to the Nous Avons Des Elles website',
     },
 
     // Hero
     hero: {
-      title: 'Station-Cœur',
-      titleLine1: 'A solidarity hub',
-      titleLine2: 'in the heart of the station',
+      title: 'Station-Cœur · Bougival station',
+      titleLine1: 'Nothing is lost,',
+      titleLine2: 'everything turns into hope.',
       description:
-        'Led by the association Nous Avons Des Elles, Station-Cœur is a meeting space for sharing and mutual aid, open to everyone. Come discover a unique place where solidarity and conviviality await you.',
-      primaryCta: 'Discover the project',
-      secondaryCta: 'Contact us',
-      scrollLabel: 'Discover',
+        'Next stop: a place where people come together. Led by the association Nous Avons Des Elles, Station-Cœur is moving into Bougival station, and work has begun.',
+      primaryCta: 'All aboard',
+      secondaryCta: 'Support the project',
+      scrollLabel: 'Next stop',
+      compare: {
+        sketchAlt: 'Hand-drawn illustration of Bougival station',
+        slider: 'Compare the illustration and the photo',
+      },
     },
 
-    // Presentation
+    // The worksite (presentation)
     presentation: {
-      subtitle: 'About',
-      title: 'A solidarity hub in the heart of the station',
-      p1: '<strong>Station-Cœur</strong> is an innovative project led by the association <strong>Nous Avons Des Elles</strong>. Located within a train station, this solidarity hub aims to create a living space for sharing and mutual aid, accessible to all.',
-      p2: 'Our ambition is to transform a transit space into a true living place, where everyone can find their place, whether they are neighborhood residents, passing travelers, or people seeking support.',
-      p3: 'Through a thrift store, a plant-based canteen, repair workshops, a games library, and actions dedicated to healthy ageing, Station-Cœur works for social bonds, inclusion, circular economy, and ecological transition.',
-      cta: 'Discover our objectives',
+      subtitle: 'The worksite',
+      title: "What's happening at Bougival station?",
+      p1: 'A new place is taking shape. <strong>Station-Cœur</strong> is moving into the station as part of the "Gares de demain" (Stations of Tomorrow) call for projects, and work has begun.',
+      p2: 'Led by the association <strong>Nous Avons Des Elles</strong>, this solidarity hub will bring together a thrift store, a plant-based canteen, repair workshops, a games library, a library of objects, and actions dedicated to healthy ageing.',
+      ticket: [
+        { label: 'Destination', value: 'Bougival station' },
+        { label: 'Line', value: 'Transilien L, from Paris Saint-Lazare' },
+        { label: 'Planned opening', value: 'Date to be confirmed' },
+      ],
+      photos: [
+        { alt: 'Bougival station from the forecourt', caption: 'Forecourt side' },
+        { alt: 'The Bougival station building from the platforms', caption: 'Platform side' },
+        { alt: 'Bougival station seen from above, with a train at the platform', caption: 'From above' },
+      ],
+      cta: 'Discover our course',
       association: 'The association',
     },
 
-    // Objectives
+    // Key figures
+    stakes: {
+      subtitle: 'Why Station-Cœur?',
+      title: 'No one should be left on the platform',
+      items: [
+        {
+          value: '1 in 4',
+          label: 'minor children in France live in a single-parent family.',
+        },
+        {
+          value: '2 million',
+          label: 'older people are cut off from their close circle, especially their family and friends.',
+        },
+        {
+          value: '750,000',
+          label: 'older people are in a state of "social death", meaning they have no regular contact with those around them or with social networks.',
+        },
+      ],
+      sources:
+        'Sources: Insee, "En 2023, trois enfants sur dix vivent avec un seul de leurs parents", January 2025; Petits Frères des Pauvres, "Baromètre solitude et isolement des personnes âgées en France", September 2025.',
+    },
+
+    // Our course (objectives)
     objectives: {
-      subtitle: 'Our objectives',
-      title: 'What drives us',
+      subtitle: 'Our course',
+      title: 'Making the station a place to live',
+      lead: 'Creating a lively place where reusing objects becomes a lever for protecting the planet, empowering women, and rebuilding social bonds.',
+      body: 'A station is a place people pass through. Station-Cœur wants to make it a place where people stop: a space for living, sharing, and finding solutions, for travellers and local residents alike, where everyone finds their place.',
+      linesTitle: 'Three lines, one direction',
+      lines: [
+        {
+          title: 'Social and intergenerational',
+          description: 'Recreating spaces for connection for families, seniors, and young people.',
+        },
+        {
+          title: 'Ecological and civic',
+          description:
+            'A solidarity thrift store, upcycling workshops, a shared garden, and well-being activities open to all.',
+        },
+        {
+          title: 'Cultural and convivial',
+          description:
+            'A station turned into a modern agora, with an eco-friendly café, community activities, and artistic and cultural events.',
+        },
+      ],
+      goalsTitle: 'What drives us',
       description:
         'Station-Cœur pursues ambitious objectives to create a lasting positive impact on the territory and its inhabitants.',
       items: [
@@ -459,47 +578,56 @@ export const translations = {
     },
 
     // Activities
+    // The place (activities)
     activities: {
-      subtitle: 'Our activities',
-      title: 'A lively and animated place',
+      subtitle: 'The place',
+      title: 'Everyone gets off here',
       description:
-        'Discover the various activities offered at Station-Cœur, a versatile space where everyone finds their place.',
+        'A versatile space where everyone finds their place. These spaces are projects under construction: they may change as the work progresses.',
+      platform: 'Platform',
       items: [
-        {
-          title: 'Solidarity thrift store',
-          description:
-            'An accessible and trendy shop that gives a second life to clothes and objects, encouraging more responsible consumption.',
-          tags: ['Reuse', 'Solidarity'],
-        },
-        {
-          title: 'Repair workshops',
-          description:
-            'Practical workshops to learn how to repair, transform, and reuse items, develop skills, and sustainably reduce waste.',
-          tags: ['Know-how', 'Ecology'],
-        },
         {
           title: 'Plant-based café-canteen',
           description:
-            'A healthy, plant-based, and accessible food offer, on-site or take-away from 7am to 8pm, for travellers and residents.',
+            'A café where people will come as much to eat as to meet: plant-based, local, and balanced recipes designed to care for body and mind. With a professional kitchen, take-away from 7am to 8pm for travellers, and a café and wifi space to relax or work remotely.',
           tags: ['Food', 'Conviviality'],
+        },
+        {
+          title: 'Eco-friendly thrift store',
+          description:
+            'Every object will tell a second story. An accessible and trendy shop, and an invitation to consume less but better: choose, repair, pass on.',
+          tags: ['Reuse', 'Solidarity'],
+        },
+        {
+          title: 'Repair and upcycling workshops',
+          description:
+            'Repair, repurpose, transform: hands will take back control, materials will come back to life, and everyone will rediscover the joy of making things last.',
+          tags: ['Know-how', 'Ecology'],
+        },
+        {
+          title: 'Library of objects and books',
+          description:
+            'Why own what you can share? Tools, games, books, and everyday appliances will be available to borrow, to declutter lives and lighten the planet.',
+          tags: ['Sharing', 'Circular economy'],
         },
         {
           title: 'Intergenerational games library',
           description:
-            'A space open to all generations where games become a vehicle for encounters, sharing, and combating isolation.',
+            'Children and elders will come together around games, building bonds through laughter, strategy, and imagination, and breaking isolation.',
           tags: ['Games', 'Social bonds'],
+        },
+        {
+          title: 'Mail and parcel service',
+          caption: 'Station-Cœur – La Poste',
+          description:
+            'Bougival no longer has a post office and the station area lacks postal services. A mail point will be available to travellers and residents.',
+          tags: ['Local', 'Services'],
         },
         {
           title: 'Cultural events',
           description:
             'Exhibitions, concerts, workshops, gatherings, and intergenerational events to make culture accessible and create bonds.',
           tags: ['Culture', 'Animation'],
-        },
-        {
-          title: 'Library of objects',
-          description:
-            'A lending and rental service for objects, tools, games, and books that facilitates access to equipment and promotes circular economy.',
-          tags: ['Sharing', 'Circular economy'],
         },
       ],
     },
@@ -604,9 +732,9 @@ export const translations = {
 
     // CTA
     cta: {
-      title: 'Join the Station-Cœur adventure',
+      title: 'Ready to come aboard?',
       description:
-        'Whether you want to become a volunteer, partner, or simply visit us, we would be delighted to welcome you!',
+        'Whether you want to become a volunteer, a partner, support the worksite, or simply visit us: there is still room on board!',
       primary: 'Contact us',
       secondary: 'Discover the association',
     },
@@ -632,7 +760,7 @@ export const translations = {
     // Footer
     footer: {
       description:
-        'A solidarity hub in the heart of the station, led by the association Nous Avons Des Elles. Together, let\'s create a space for sharing, mutual aid, and inclusion.',
+        'A solidarity hub at Bougival station, led by the association Nous Avons Des Elles. Together, let\'s create a space for sharing, mutual aid, and inclusion.',
       navigation: 'Navigation',
       association: 'The Association',
       legal: 'Legal notice',
@@ -654,8 +782,8 @@ export const translations = {
     misc: {
       solidarity: 'Solidarity',
       localHelp: 'Local help',
-      inclusion: 'Inclusion',
-      forAll: 'For all',
+      nextStop: 'Next stop',
+      station: 'Bougival station',
       projectImage: 'Project image',
     },
   },

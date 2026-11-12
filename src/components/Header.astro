@@ -12,9 +12,9 @@ const isHome = Astro.url.pathname.replace(/\/$/, '') === homePath.replace(/\/$/,
 const anchor = (id: string) => (isHome ? `#${id}` : `${homePath}#${id}`);
 
 const navLinks = [
-  { href: anchor('presentation'), label: t.nav.project },
-  { href: anchor('objectifs'), label: t.nav.objectives },
-  { href: anchor('activites'), label: t.nav.activities },
+  { href: anchor('chantier'), label: t.nav.project },
+  { href: anchor('cap'), label: t.nav.objectives },
+  { href: anchor('lieu'), label: t.nav.activities },
   { href: anchor('publics'), label: t.nav.publics },
   { href: anchor('partenaires'), label: t.nav.partners },
   { href: anchor('contact'), label: t.nav.contact },
@@ -73,7 +73,7 @@ const navLinks = [
           <LanguageSwitcher />
         </div>
         <a href={anchor('contact')} class="btn-primary ml-4 px-5 py-2 text-sm font-medium hover:shadow-none hover:translate-y-0 hidden xl:inline-flex">
-          {t.nav.joinAdventure}
+          {t.nav.support}
         </a>
       </div>
 
@@ -110,7 +110,7 @@ const navLinks = [
         ))}
         <div class="pt-4">
           <a href={anchor('contact')} class="btn-primary w-full text-center">
-            {t.nav.joinAdventure}
+            {t.nav.support}
           </a>
         </div>
       </div>

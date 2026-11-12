@@ -1,0 +1,51 @@
+---
+// One "platform" (voie) of the departures-board list in the « Le lieu » section.
+interface Props {
+  number: number;
+  platformLabel: string;
+  title: string;
+  caption?: string;
+  description: string;
+  tags?: readonly string[];
+  image?: string;
+}
+
+const { number, platformLabel, title, caption, description, tags = [], image } = Astro.props;
+---
+
+<li class="group grid grid-cols-[auto_minmax(0,1fr)_auto] md:grid-cols-[auto_minmax(0,15rem)_minmax(0,1fr)_auto] lg:grid-cols-[auto_minmax(0,18rem)_minmax(0,1fr)_auto] gap-x-5 md:gap-x-8 gap-y-4 py-8 border-b border-secondary-200 last:border-b-0">
+  <!-- Platform sign -->
+  <div class="col-start-1 row-start-1 w-16 h-16 rounded-2xl bg-primary-600 text-white flex flex-col items-center justify-center leading-none shadow-[0_4px_12px_rgba(39,78,57,0.25)] transition-transform duration-300 group-hover:-rotate-3">
+    <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary-50">{platformLabel}</span>
+    <span class="mt-1 font-display font-bold text-2xl">{number}</span>
+  </div>
+
+  <!-- Title -->
+  <div class="col-start-2 row-start-1 self-center md:self-start">
+    <h3 class="font-display font-bold text-xl lg:text-2xl leading-snug text-accent-600">{title}</h3>
+    {caption && <p class="mt-1 text-sm font-semibold text-secondary-600">{caption}</p>}
+    {tags.length > 0 && (
+      <div class="hidden md:flex flex-wrap gap-2 mt-3">
+        {tags.map(tag => (
+          <span class="px-3 py-1 text-xs font-medium bg-primary-100 text-primary-700 rounded-full">{tag}</span>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <!-- Description -->
+  <p class="col-span-3 row-start-2 md:col-span-1 md:col-start-3 md:row-start-1 text-secondary-600 leading-relaxed" style="text-wrap: pretty;">
+    {description}
+  </p>
+
+  <!-- Visual -->
+  <div class="col-start-3 row-start-1 md:col-start-4 w-16 h-16 md:w-28 md:h-28 rounded-2xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.15)]">
+    {image ? (
+      <img src={image} alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+    ) : (
+      <div class="w-full h-full bg-primary-100 flex items-center justify-center">
+        <slot name="icon" />
+      </div>
+    )}
+  </div>
+</li>
